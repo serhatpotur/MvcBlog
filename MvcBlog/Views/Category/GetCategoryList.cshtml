@@ -1,0 +1,28 @@
+﻿@using Entity.Concrate
+@model List<Category>
+@{
+    ViewBag.Title = "GetCategoryList";
+}
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    
+<table class="table table-striped">
+    <tr>
+        <th>Kategori Adı</th>
+        <th>Kategori Açıklama</th>
+        <th>Kategori Başlık</th>
+        <th>Kategori Durum</th>
+    </tr>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryDescription</td>
+                <td>@item.Headings</td>
+                <td>@item.CategoryStatüs</td>
+            </tr>
+        }
+    </tbody>
+</table>
+    <a href="/Category/AddCategory" >Kategori Ekle</a>
+

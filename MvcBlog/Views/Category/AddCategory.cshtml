@@ -1,0 +1,54 @@
+﻿@model Entity.Concrate.Category
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCategory</title>
+</head>
+<body>
+    <div>
+        <h1> Yeni Kategori Ekle</h1>
+    </div>
+
+    @using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+        <div class="form-group">
+            @Html.Label("Kategori Adı", new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(m => m.CategoryName)*@
+            </div>
+            <br />
+            @Html.Label("Kategori Açıklaması", new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.CategoryDescription, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(m => m.CategoryName)*@
+            </div>
+            <br />
+            @Html.Label("Kategori Durumu", new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.CategoryStatüs, new { @class = "form-control" })
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+    }
+
+
+
+    @*<form class="form-group" method="post">
+            <div class="col-md-8">
+                <input type="text" class="form-control" placeholder="Kategori Adı" name="CategoryName" /> <br />
+                <input type="text" class="form-control" placeholder="Kategori Açıklama" name="CategoryDescription" /> <br />
+                <button class="btn btn-primary">Ekle</button>
+            </div>
+
+        </form>*@
+</body>
+</html>
