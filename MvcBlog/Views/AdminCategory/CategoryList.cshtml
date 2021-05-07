@@ -1,0 +1,32 @@
+﻿@using Entity.Concrate
+@model List<Category>
+@{
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>Kategori Adı</th>
+        <th>Kategori Açıklama</th>
+        <th>Kategori Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Başlıklar</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryDescription</td>
+                <td>@item.CategoryStatüs</td>
+                <td><a href="#" class="btn btn-danger btn-sm">Sil</a></td>
+                <td><a href="#" class="btn btn-success btn-sm">Güncelle</a></td>
+                <td><a href="#" class="btn btn-outline-warning btn-sm">Başlıklar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/AdminCategory/AddCategory" class="btn btn-info">Kategori Ekle</a>
