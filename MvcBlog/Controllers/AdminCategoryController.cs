@@ -45,5 +45,23 @@ namespace MvcBlog.Controllers
             }
 
         }
+        public ActionResult DeleteCategory(int id)
+        {
+            var result = categoryManager.GetById(id);
+            categoryManager.Delete(result);
+            return RedirectToAction("CategoryList");
+        }
+        [HttpGet]
+        public ActionResult UpdateCategory(int id)
+        {
+            var result = categoryManager.GetById(id);
+            return View(result);
+        }
+        [HttpPost]
+        public ActionResult UpdateCategory(Category category)
+        {
+            categoryManager.Update(category);
+            return RedirectToAction("CategoryList");
+        }
     }
 }

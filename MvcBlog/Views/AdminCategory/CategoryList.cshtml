@@ -6,8 +6,8 @@
 }
 
 <br />
-<table class="table table-hover table-bordered">
-    <tr>
+<table class="table table-hover table-bordered table-sm">
+    <tr class="bg-primary text-white">
         <th>Kategori Adı</th>
         <th>Kategori Açıklama</th>
         <th>Kategori Durum</th>
@@ -22,11 +22,11 @@
                 <td>@item.CategoryName</td>
                 <td>@item.CategoryDescription</td>
                 <td>@item.CategoryStatüs</td>
-                <td><a href="#" class="btn btn-danger btn-sm">Sil</a></td>
-                <td><a href="#" class="btn btn-success btn-sm">Güncelle</a></td>
+                <td> @Html.ActionLink("Sil", "DeleteCategory", new { id = item.CategoryID }, new { @class = "btn btn-danger btn-sm" })</td>
+                <td> @Html.ActionLink("Güncelle", "UpdateCategory", new { id = item.CategoryID }, new { @class = "btn btn-warning btn-sm" })</td>
                 <td><a href="#" class="btn btn-outline-warning btn-sm">Başlıklar</a></td>
             </tr>
         }
     </tbody>
 </table>
-<a href="/AdminCategory/AddCategory" class="btn btn-info">Kategori Ekle</a>
+@Html.ActionLink("Kategori Ekle", "AddCategory", null, new { @class = "btn btn-info" })

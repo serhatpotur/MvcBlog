@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="card text-white bg-dark mb-4 mr-3 float-left" style="width: 20rem; height:auto">
+    <div class="card-header" style="text-align:center;">Mvc Blog</div>
+    <div class="card-body">
+        <h5 class="card-title text-center">Toplam Kategori Sayısı</h5><br />
+        <p class="card-text " style="font-size:20px;"><b>@ViewBag.CategoryCount</b></p>
+    </div>
+</div>
+<div class="card text-white bg-secondary  mb-4 mr-3 float-left" style="width: 20rem; height:auto">
+    <div class="card-header" style="text-align:center;">Mvc Blog</div>
+    <div class="card-body">
+        <h5 class="card-title">Yazılım Kategorisine Ait Başlık Sayısı</h5>
+        <p class="card-text " style="font-size:20px;"><b>@ViewBag.Heading</b></p>
+    </div>
+</div>
+<div class="card text-white bg-success  mb-4 mr-3 float-left" style="width: 20rem; height:auto">
+    <div class="card-header" style="text-align:center;">Mvc Blog</div>
+    <div class="card-body">
+        <h5 class="card-title">Yazar adında 'a' harfi geçen yazar sayısı</h5>
+        <p class="card-text " style="font-size:20px;"><b>@ViewBag.Writer</b></p>
+    </div>
+</div>
+<div class="card text-white bg-danger  mb-4 mr-3 float-left" style="width: 20rem; height:auto">
+    <div class="card-header" style="text-align:center;">Mvc Blog</div>
+    <div class="card-body">
+        <h5 class="card-title">En fazla başlığa sahip kategori adı</h5>
+        <p class="card-text " style="font-size:20px;"><b>@ViewBag.HeadingMax</b></p>
+    </div>
+</div>
+<div class="card text-white bg-warning  mb-4 mr-3 float-left" style="width: 20rem; height:auto">
+    <div class="card-header" style="text-align:center;">Mvc Blog</div>
+    <div class="card-body">
+        <h5 class="card-title">Kategori tablosunda Durumu T/F olan farkı</h5>
+        <p class="card-text " style="font-size:20px;"><b>@ViewBag.StatüsFark</b></p>
+    </div>
+</div>
