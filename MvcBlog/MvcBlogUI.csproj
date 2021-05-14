@@ -2279,6 +2279,7 @@
     <Content Include="Views\Istatistik\Index.cshtml" />
     <Content Include="Views\Writer\WriterList.cshtml" />
     <Content Include="Views\Writer\AddWriter.cshtml" />
+    <Content Include="Views\Writer\UpdateWriter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

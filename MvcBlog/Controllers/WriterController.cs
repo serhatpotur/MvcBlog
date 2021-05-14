@@ -45,5 +45,24 @@ namespace MvcBlog.Controllers
             }
            
         }
+        public ActionResult DeleteWriter(int id)
+        {
+            var result = writerManager.GetById(id);
+            writerManager.Delete(result);
+            return RedirectToAction("WriterList");
+        }
+        [HttpGet]
+        public ActionResult UpdateWriter(int id)
+        {
+            var result = writerManager.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateWriter(Writer writer)
+        {
+            writerManager.Update(writer);
+            return RedirectToAction("WriterList");
+        }
     }
 }
