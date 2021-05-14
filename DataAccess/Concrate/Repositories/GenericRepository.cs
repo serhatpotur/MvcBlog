@@ -21,7 +21,9 @@ namespace DataAccess.Concrate.Repositories
         }
         public void Delete(T p)
         {
-            _object.Remove(p);
+            var deleted = context.Entry(p);
+            deleted.State = EntityState.Deleted;
+            //_object.Remove(p);
             context.SaveChanges();
         }
 
@@ -32,7 +34,9 @@ namespace DataAccess.Concrate.Repositories
 
         public void Insert(T p)
         {
-            _object.Add(p);
+            var added = context.Entry(p);
+            added.State = EntityState.Added;
+            //_object.Add(p);
             context.SaveChanges();
         }
 
@@ -48,6 +52,8 @@ namespace DataAccess.Concrate.Repositories
 
         public void Update(T p)
         {
+            var updated = context.Entry(p);
+            updated.State = EntityState.Modified;
             context.SaveChanges();
         }
     }

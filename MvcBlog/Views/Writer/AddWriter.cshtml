@@ -1,0 +1,55 @@
+﻿@model Entity.Concrate.Writer
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post, new { style = "padding-top:20px" }))
+{
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Yazar Adı", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.WriterName, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WriterName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Yazar Soyadı", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.WriterSurname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WriterSurname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Yazar Mail", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.WriterMail, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WriterMail, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Yazar Şifresi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.WriterPassword, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WriterPassword, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Listeye Dön", "WriterList", null, new { @class = "btn btn-danger" })
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+}
+
+

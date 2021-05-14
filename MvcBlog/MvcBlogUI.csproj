@@ -136,6 +136,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
+    <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +212,7 @@
     <Content Include="themes\AdminLTE\dist\img\credit\paypal2.png" />
     <Content Include="themes\AdminLTE\dist\img\credit\visa.png" />
     <Content Include="themes\AdminLTE\dist\img\default-150x150.png" />
+    <Content Include="themes\AdminLTE\dist\img\gold.png" />
     <Content Include="themes\AdminLTE\dist\img\icons.png" />
     <Content Include="themes\AdminLTE\dist\img\photo1.png" />
     <Content Include="themes\AdminLTE\dist\img\photo2.png" />
@@ -2275,6 +2277,8 @@
     <Content Include="Views\AdminCategory\AddCategory.cshtml" />
     <Content Include="Views\AdminCategory\UpdateCategory.cshtml" />
     <Content Include="Views\Istatistik\Index.cshtml" />
+    <Content Include="Views\Writer\WriterList.cshtml" />
+    <Content Include="Views\Writer\AddWriter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
