@@ -61,8 +61,21 @@ namespace MvcBlog.Controllers
         [HttpPost]
         public ActionResult UpdateWriter(Writer writer)
         {
-            writerManager.Update(writer);
-            return RedirectToAction("WriterList");
+            WriterValidator writerValidator = new WriterValidator();
+            ValidationResult results = writerValidator.Validate(writer);
+            if (results.IsValid)
+            {
+                writerManager.Update(writer);
+                return RedirectToAction("WriterList");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
         }
     }
 }

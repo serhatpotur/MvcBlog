@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class WriterValidator:AbstractValidator<Writer>
+    public class WriterValidator : AbstractValidator<Writer>
     {
         public WriterValidator()
         {
@@ -18,7 +18,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(x => x.WriterPassword).NotEmpty().WithMessage("Yazar Şifresi Boş Bırakılamaz");
             RuleFor(x => x.WriterName).MinimumLength(3).WithMessage("Yazar Adı En Az 3 Karakterden Oluşmalıdır");
             RuleFor(x => x.WriterSurname).MinimumLength(3).WithMessage("Yazar Soyadı En Az 3 Karakterden Oluşmalıdır");
-            //RuleFor(x => x.WriterPassword).MinimumLength(5).WithMessage("Yazar Soyadı En Az 3 Karakterden Oluşmalıdır");
+            RuleFor(x => x.WriterPassword).MinimumLength(5).WithMessage("Şifre en az 5 karakterden oluşmalıdır");
         }
     }
 }
