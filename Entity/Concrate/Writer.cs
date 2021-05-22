@@ -15,12 +15,13 @@ namespace Entity.Concrate
         public string WriterName { get; set; }
         [StringLength(50)]
         public string WriterSurname { get; set; }
-        [StringLength(100)]
+        [StringLength(250)]
         public string WriterImage { get; set; }
         [StringLength(200)]
         public string WriterMail { get; set; }
         [StringLength(200)]
         public string WriterPassword { get; set; }
+        public bool isActive { get; set; }
 
         // Relationship
 

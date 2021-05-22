@@ -71,6 +71,14 @@
     <Compile Include="Migrations\202105141616576_mig_writer_edit.designer.cs">
       <DependentUpon>202105141616576_mig_writer_edit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105222139311_ImageSizeChange.cs" />
+    <Compile Include="Migrations\202105222139311_ImageSizeChange.designer.cs">
+      <DependentUpon>202105222139311_ImageSizeChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105222149285_isActive.cs" />
+    <Compile Include="Migrations\202105222149285_isActive.designer.cs">
+      <DependentUpon>202105222149285_isActive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -87,6 +95,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105141616576_mig_writer_edit.resx">
       <DependentUpon>202105141616576_mig_writer_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105222139311_ImageSizeChange.resx">
+      <DependentUpon>202105222139311_ImageSizeChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105222149285_isActive.resx">
+      <DependentUpon>202105222149285_isActive.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
