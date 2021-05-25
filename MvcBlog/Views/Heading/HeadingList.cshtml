@@ -3,7 +3,14 @@
 @{
     ViewBag.Title = "HeadingList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
 }
+@{
+    var isActiveValue = "";
+    var isActiveText = "";
+}
+
+
 
 <!-- Main content -->
 <section class="content pt-3">
@@ -23,7 +30,7 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-           
+
         </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
@@ -53,9 +60,22 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
+                        switch (item.isActive)
+                        {
+                            case true:
+                                isActiveValue = "badge badge-success";
+                                isActiveText = "Aktif";
+                                break;
+                            case false:
+                                isActiveValue = "badge badge-danger";
+                                isActiveText = "Pasif";
+                                break;
+                        }
+
+
                         <tr>
                             @*<td>
-                                    #
+                                                            #
                                 </td>*@
                             <td>
 
@@ -78,18 +98,18 @@
                                 @item.Category.CategoryName
                             </td>
                             <td class="project-state">
-                                <span class="badge badge-success">Success</span>
+                                <span class="@isActiveValue">@isActiveText</span>
                             </td>
                             <td class="project-actions text-right">
                                 <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@item.HeadingID">
                                     <i class="fas fa-folder">
                                     </i>
                                 </a>
-                                <a class="btn btn-warning btn-sm" href="#">
+                                <a class="btn btn-warning btn-sm" href="/Heading/UpdateHeading/@item.HeadingID">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="#">
+                                <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
                                     <i class="fas fa-trash">
                                     </i>
                                 </a>

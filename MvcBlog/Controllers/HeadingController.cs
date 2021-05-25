@@ -61,6 +61,39 @@ namespace MvcBlog.Controllers
             }
 
         }
-       
+        public ActionResult DeleteHeading(int id)
+        {
+            var result = headingManager.GetById(id);
+            result.isActive = false;
+            headingManager.Delete(result);
+            return RedirectToAction("HeadingList");
+        }
+        [HttpGet]
+        public ActionResult UpdateHeading(int id)
+        {
+            var result = headingManager.GetById(id);
+            List<SelectListItem> categoryValues = (from i in categoryManager.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = i.CategoryName,
+                                                       Value = i.CategoryID.ToString()
+                                                   }).ToList();
+            List<SelectListItem> writerValues = (from i in writerManager.GetList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = i.WriterName + " " + i.WriterSurname,
+                                                     Value = i.WriterID.ToString()
+                                                 }).ToList();
+            ViewBag.Categories = categoryValues;
+            ViewBag.Writers = writerValues;
+            return View(result);
+        }
+        [HttpPost]
+        public ActionResult UpdateHeading(Heading heading)
+        {
+            headingManager.Update(heading);
+            return RedirectToAction("HeadingList");
+        }
+
     }
 }

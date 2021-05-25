@@ -1,0 +1,43 @@
+﻿@model Entity.Concrate.About
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Hakkımızda Girişi</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h2 class="modal-title">Hakkımzda Girişi</h2>
+                <a href=""> <span class="float-right">X</span></a>
+            </div>
+            @using (Html.BeginForm("", "", FormMethod.Post))
+            {
+                <div class="modal-body">
+                    <div class="form-group">
+                        @Html.Label("Hakkımızda Girişi 1", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.AboutDetails1, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Hakkımızda Girişi 2", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.AboutDetails2, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Hakkımızda Resim Girişi 1", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.AboutImage1, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Hakkımızda Resim Girişi 2", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.AboutImage2, new { @class = "form-control" })
+                    </div>
+                    <a href="#" class="btn btn-danger">Vazgeç</a>
+                    <button type="submit" class="btn btn-info">Kaydet</button>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

@@ -13,6 +13,7 @@ namespace Entity.Concrate
         public int ContentID { get; set; }
         public string ContentText { get; set; }
         public DateTime ContentDate { get; set; }
+        public bool isActive { get; set; }
 
         //Relationship
         public int HeadingID { get; set; }

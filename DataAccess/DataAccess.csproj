@@ -79,6 +79,14 @@
     <Compile Include="Migrations\202105222149285_isActive.designer.cs">
       <DependentUpon>202105222149285_isActive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105251403237_Add_isActive.cs" />
+    <Compile Include="Migrations\202105251403237_Add_isActive.designer.cs">
+      <DependentUpon>202105251403237_Add_isActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105251406188_heading_isActive.cs" />
+    <Compile Include="Migrations\202105251406188_heading_isActive.designer.cs">
+      <DependentUpon>202105251406188_heading_isActive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +109,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105222149285_isActive.resx">
       <DependentUpon>202105222149285_isActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105251403237_Add_isActive.resx">
+      <DependentUpon>202105251403237_Add_isActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105251406188_heading_isActive.resx">
+      <DependentUpon>202105251406188_heading_isActive.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

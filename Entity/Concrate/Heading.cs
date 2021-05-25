@@ -14,6 +14,7 @@ namespace Entity.Concrate
         [StringLength(50)]
         public string HeadingName { get; set; }
         public DateTime HeadingDate { get; set; }
+        public bool isActive { get; set; }
 
 
         // Relationship

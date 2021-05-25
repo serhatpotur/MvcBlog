@@ -25,7 +25,7 @@ namespace Business.Concrate
 
         public void Delete(Heading heading)
         {
-            _headingDal.Delete(heading);
+            _headingDal.Update(heading);
         }
 
         public Heading GetById(int id)

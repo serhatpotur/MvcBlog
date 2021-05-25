@@ -16,7 +16,6 @@ namespace MvcBlog.Controllers
         public ActionResult ContentByHeading(int id)
         {
             var result = contentManager.GetListByHeadingId(id);
-            result.OrderByDescending(x => x.ContentDate);
             var head = headingManager.GetById(id).HeadingName;
             ViewBag.HeadName = head;
             return View(result);

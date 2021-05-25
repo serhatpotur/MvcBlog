@@ -1,0 +1,59 @@
+﻿@model Entity.Concrate.Heading
+@{
+    ViewBag.Title = "UpdateHeading";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("UpdateHeading", "Heading", FormMethod.Post, new { style = "padding-top:20px" }))
+{
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Başlık ID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.HeadingID, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HeadingID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Başlık Adı", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.HeadingName, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HeadingName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Başlık Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.HeadingDate, new { @class = "form-control", @Value = @DateTime.Now.ToShortDateString() })
+                @Html.ValidationMessageFor(model => model.HeadingDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Kategori", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.CategoryID, (List<SelectListItem>)ViewBag.Categories, "Kategori Seçiniz", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Category.CategoryName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Yazar", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.WriterID, (List<SelectListItem>)ViewBag.Writers, "Yazar Seçiniz", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Writer.WriterName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Listeye Dön", "HeadingList", null, new { @class = "btn btn-danger" })
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+}
