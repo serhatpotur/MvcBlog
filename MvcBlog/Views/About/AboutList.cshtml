@@ -1,0 +1,30 @@
+﻿@using Entity.Concrate
+@model List<About>
+@{
+    ViewBag.Title = "AboutList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.Action("AddAboutPartial","About")
+<table class="table table-hover table-bordered table-sm pt-5">
+    <tr class="bg-primary text-white">
+        <th>Hakkımızda Açıklama 1</th>
+        <th>Hakkımızda Resim 1</th>
+        <th>Hakkımızda Açıklama 2</th>
+        <th>Hakkımızda Resim 2</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AboutDetails1</td>
+                <td>@item.AboutImage1</td>
+                <td>@item.AboutDetails2</td>
+                <td>@item.AboutImage2</td>
+                <td> @Html.ActionLink("Sil", "DeleteAbout", new { id = item.AboutID }, new { @class = "btn btn-danger btn-sm" })</td>
+                <td> @Html.ActionLink("Güncelle", "UpdateAbout", new { id = item.AboutID }, new { @class = "btn btn-warning btn-sm" })</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -19,17 +19,22 @@ namespace Business.Concrate
 
         public void Add(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Insert(about);
         }
 
         public void Delete(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Delete(about);
+        }
+
+        public List<About> GetList()
+        {
+            return _aboutDal.List();
         }
 
         public void Update(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Update(about);
         }
     }
 }
