@@ -1,7 +1,6 @@
-﻿
-@model Entity.Concrate.Contact
+﻿@model Entity.Concrate.Message
 @{
-    ViewBag.Title = "GetContactDetails";
+    ViewBag.Title = "GetMessageDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -9,10 +8,10 @@
 <div class="container-fluid pt-2">
     <div class="row">
         <div class="col-md-3">
-            <a href="/Contact/ContactList" class="btn btn-primary btn-block mb-3">Gelen Kutusuna Dön</a>
+            <a href="/Message/Inbox" class="btn btn-primary btn-block mb-3">Gelen Kutusuna Dön</a>
 
             @Html.Action("ContactSideBar", "Contact")
-         
+
         </div>
         <!-- /.col -->
         <div class="col-md-9">
@@ -29,9 +28,9 @@
                 <div class="card-body p-0">
 
                     <div class="mailbox-read-info">
-                        <h5>@Model.Subject</h5> <br />
+                        <h5>@Model.MessageSubject</h5> <br />
                         <h6>
-                          @Model.UserFullName < @Model.UserMail >
+                            @Model.ReceiverMail 
                             <span class="mailbox-read-time float-right">@Model.MessageDate.ToShortDateString()</span>
                         </h6>
                     </div>
@@ -39,7 +38,7 @@
                     <!-- /.mailbox-controls -->
                     <div class="mailbox-read-message">
                         <p>
-                            @Model.Message
+                            @Model.MessageContent
                         </p>
                     </div>
                     <!-- /.mailbox-read-message -->

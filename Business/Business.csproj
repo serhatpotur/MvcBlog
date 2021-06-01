@@ -59,12 +59,14 @@
     <Compile Include="Abstract\IContactService.cs" />
     <Compile Include="Abstract\IContentService.cs" />
     <Compile Include="Abstract\IHeadingService.cs" />
+    <Compile Include="Abstract\IMessageService.cs" />
     <Compile Include="Abstract\IWriterService.cs" />
     <Compile Include="Concrate\AboutManager.cs" />
     <Compile Include="Concrate\CategoryManager.cs" />
     <Compile Include="Concrate\ContactManager.cs" />
     <Compile Include="Concrate\ContentManager.cs" />
     <Compile Include="Concrate\HeadingManager.cs" />
+    <Compile Include="Concrate\MessageManager.cs" />
     <Compile Include="Concrate\WriterManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\FluentValidation\CategoryValidator.cs" />

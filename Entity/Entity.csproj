@@ -56,6 +56,7 @@
     <Compile Include="Concrate\Contact.cs" />
     <Compile Include="Concrate\Content.cs" />
     <Compile Include="Concrate\Heading.cs" />
+    <Compile Include="Concrate\Message.cs" />
     <Compile Include="Concrate\Writer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

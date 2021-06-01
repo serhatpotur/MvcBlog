@@ -140,6 +140,7 @@
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2295,6 +2296,10 @@
     <Content Include="Views\Contact\ContactList.cshtml" />
     <Content Include="Views\Contact\GetContactDetails.cshtml" />
     <Content Include="Views\Contact\ContactSideBar.cshtml" />
+    <Content Include="Views\Message\Inbox.cshtml" />
+    <Content Include="Views\Message\Sendbox.cshtml" />
+    <Content Include="Views\Message\GetMessageDetails.cshtml" />
+    <Content Include="Views\Message\NewMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

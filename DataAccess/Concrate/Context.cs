@@ -16,5 +16,6 @@ namespace DataAccess.Concrate
         public DbSet<Content> Contents { get; set; }
         public DbSet<Heading> Headings { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }
