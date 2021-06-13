@@ -23,7 +23,12 @@ namespace MvcBlog.Controllers
             var results = messageManager.GetSendboxList();
             return View(results);
         }
-        public ActionResult GetMessageDetails(int id)
+        public ActionResult GetInboxMessageDetails(int id)
+        {
+            var results = messageManager.GetByMessageId(id);
+            return View(results);
+        }
+        public ActionResult GetSendboxMessageDetails(int id)
         {
             var results = messageManager.GetByMessageId(id);
             return View(results);
@@ -35,6 +40,12 @@ namespace MvcBlog.Controllers
         }
         [HttpPost]
         public ActionResult NewMessage(Message message)
+        {
+            message.MessageDate = DateTime.Now;
+            messageManager.Add(message);
+            return RedirectToAction("Sendbox");
+        }
+        public ActionResult Drafts()
         {
             return View();
         }

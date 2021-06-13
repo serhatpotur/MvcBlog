@@ -19,6 +19,8 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(x => x.WriterName).MinimumLength(3).WithMessage("Yazar Adı En Az 3 Karakterden Oluşmalıdır");
             RuleFor(x => x.WriterSurname).MinimumLength(3).WithMessage("Yazar Soyadı En Az 3 Karakterden Oluşmalıdır");
             RuleFor(x => x.WriterPassword).MinimumLength(5).WithMessage("Şifre en az 5 karakterden oluşmalıdır");
+            RuleFor(s => s.WriterMail).NotEmpty().WithMessage("Mail adresi boş bırakılamaz")
+                      .EmailAddress().WithMessage("Geçerli bir e-posta giriniz");
         }
     }
 }

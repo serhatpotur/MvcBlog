@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace MvcBlog.Controllers
 {
+    [Authorize(Roles ="A")]
     public class AdminCategoryController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());

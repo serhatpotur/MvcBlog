@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MvcBlog.Controllers
 {
+    [Authorize]
     public class ContactController : Controller
     {
         ContactManager contactManager = new ContactManager(new EfContactDal());

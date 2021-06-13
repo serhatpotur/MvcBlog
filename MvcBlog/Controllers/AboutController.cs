@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MvcBlog.Controllers
 {
+    [Authorize]
     public class AboutController : Controller
     {
         AboutManager aboutManager = new AboutManager(new EfAboutDal());

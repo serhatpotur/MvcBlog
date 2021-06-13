@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@ViewBag.Title</title>
+
+
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/themes/AdminLTE/plugins/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
@@ -17,6 +20,14 @@
     <link rel="stylesheet" href="~/themes/AdminLTE/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="~/themes/AdminLTE/plugins/summernote/summernote-bs4.css">
+
+    <script src="~/themes/AdminLTE/plugins/summernote/summernote.min.js"></script>
+    <!-- Google Font: Source Sans Pro -->
+
+
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -38,7 +49,7 @@ to get the desired effect
             <a href="index3.html" class="brand-link">
                 <img src="~/themes/AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                      style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">GagenPress</span>
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -48,7 +59,7 @@ to get the desired effect
                         <img src="~/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">@Session["AdminUserName"]</a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
@@ -56,14 +67,17 @@ to get the desired effect
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview">
-                            <a href="/AdminCategory/CategoryList" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Kategoriler
-                                </p>
-                            </a>
-                        </li>
+                        @if (User.IsInRole("A"))
+                        {
+                            <li class="nav-item has-treeview">
+                                <a href="/AdminCategory/CategoryList" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Kategoriler
+                                    </p>
+                                </a>
+                            </li>
+                        }
                         <li class="nav-item has-treeview">
                             <a href="/Heading/HeadingList" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -80,35 +94,38 @@ to get the desired effect
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Grafikler
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik 1</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik 2</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik 3</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        @if (User.IsInRole("A"))
+                        {
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-chart-pie"></i>
+                                    <p>
+                                        Grafikler
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/charts/chartjs.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Grafik 1</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/charts/flot.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Grafik 2</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/charts/inline.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Grafik 3</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                         <li class="nav-item has-treeview">
                             <a href="/About/AboutList" class="nav-link">
                                 <i class="nav-icon fas fa-tree"></i>
@@ -117,11 +134,24 @@ to get the desired effect
                                 </p>
                             </a>
                         </li>
+                        @if (User.IsInRole("A"))
+                        {
+
+
+                            <li class="nav-item has-treeview">
+                                <a href="/Contact/ContactList" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>
+                                        İletişim
+                                    </p>
+                                </a>
+                            </li>
+                        }
                         <li class="nav-item has-treeview">
-                            <a href="/Contact/ContactList" class="nav-link">
+                            <a href="/Message/Inbox" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
-                                    İletişim & Mesajlar
+                                    Mesajlar
                                 </p>
                             </a>
                         </li>
@@ -142,7 +172,7 @@ to get the desired effect
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="/Gallery/Index" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Galeri
@@ -150,11 +180,11 @@ to get the desired effect
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/ErrorPage/Page404" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
                                     Hata Sayfaları
-                                    <i class="fas fa-angle-left right"></i>
+
                                 </p>
                             </a>
                         </li>
@@ -168,7 +198,7 @@ to get the desired effect
 
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/Account/Logout" class="nav-link">
                                 <i class="nav-icon fas fa-plus-square"></i>
                                 <p>
                                     Çıkış yap
@@ -196,7 +226,7 @@ to get the desired effect
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-   @* <script src="~/themes/AdminLTE/plugins/jquery/jquery.min.js"></script>*@
+    @*<script src="~/Theme/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>*@
     <!-- Bootstrap -->
     <script src="~/themes/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
