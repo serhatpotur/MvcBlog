@@ -24,7 +24,13 @@ namespace Business.Concrate
 
         public void Delete(About about)
         {
+            
             _aboutDal.Delete(about);
+        }
+
+        public About GetByID(int id)
+        {
+            return _aboutDal.Get(x => x.AboutID == id);
         }
 
         public List<About> GetList()

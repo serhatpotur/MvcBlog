@@ -27,7 +27,25 @@ namespace MvcBlog.Controllers
         [HttpPost]
         public ActionResult AddAbout(About about)
         {
+            about.isActive = true;
             aboutManager.Add(about);
+            return RedirectToAction("AboutList");
+        }
+        public ActionResult DurumDegis(int id)
+        {
+            var result= aboutManager.GetByID(id);
+            if (result.isActive==true)
+            {
+                result.isActive = false;
+                aboutManager.Update(result);
+            }
+            else
+            {
+                result.isActive = true;
+                aboutManager.Update(result);
+
+            }
+
             return RedirectToAction("AboutList");
         }
         public PartialViewResult AddAboutPartial()

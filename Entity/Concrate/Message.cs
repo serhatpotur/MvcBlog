@@ -20,5 +20,10 @@ namespace Entity.Concrate
 
         public string MessageContent { get; set; }
         public DateTime MessageDate { get; set; }
+        public bool isDraft { get; set; }
+
+        public bool isTrash { get; set; }
+
+        public bool isRead { get; set; }
     }
 }

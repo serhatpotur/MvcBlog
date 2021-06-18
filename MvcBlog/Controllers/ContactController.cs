@@ -30,9 +30,11 @@ namespace MvcBlog.Controllers
             var ReceiverCount = context.Messages.Where(x => x.ReceiverMail == "admin@gmail.com").Count();
             var SenderCount = context.Messages.Where(x => x.SenderMail == "admin@gmail.com").Count();
             var ContactCount = context.Contacts.Count();
+            var DraftCount = context.Messages.Where(x => x.SenderMail == "admin@gmail.com" && x.isDraft == true).Count();
             ViewBag.d1 = ReceiverCount;
             ViewBag.d2 = SenderCount;
             ViewBag.d3 = ContactCount;
+            ViewBag.d4 = DraftCount;
             return PartialView();
         }
     }

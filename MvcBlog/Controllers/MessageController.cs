@@ -1,6 +1,8 @@
 ﻿using Business.Concrate;
+using Business.ValidationRules.FluentValidation;
 using DataAccess.EntityFramework;
 using Entity.Concrate;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,11 @@ using System.Web.Mvc;
 
 namespace MvcBlog.Controllers
 {
+    [Authorize]
     public class MessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
+        MessageValidator messageValidator = new MessageValidator();
         // GET: Message
         public ActionResult Inbox()
         {
@@ -39,15 +43,74 @@ namespace MvcBlog.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult NewMessage(Message message)
+        public ActionResult NewMessage(Message message, string menuName)
         {
-            message.MessageDate = DateTime.Now;
-            messageManager.Add(message);
-            return RedirectToAction("Sendbox");
-        }
-        public ActionResult Drafts()
-        {
+            ValidationResult results = messageValidator.Validate(message);
+            //Gönder Butonuna basılmış ise
+            if (menuName == "send")
+            {
+                //Validator kontrol ettik
+                if (results.IsValid)
+                {
+                    //Şimdilik kapalı Session ile çekilecek
+                    //message.SenderMail = "admin@gmail.com";
+                    message.MessageDate = DateTime.Now;
+                    messageManager.Add(message);
+                    return RedirectToAction("Sendbox");
+                }
+                else
+                {
+                    foreach (var item in results.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
+                }
+
+            }
+            //Taslaklara kaydet ise
+            else if (menuName == "draft")
+            {
+                if (results.IsValid)
+                {
+                    //message.SenderMail = "admin@gmail.com";
+                    message.isDraft = true;
+                    message.MessageDate = DateTime.Now;
+                    messageManager.Add(message);
+                    return RedirectToAction("DraftMessages");
+                }
+                else
+                {
+                    foreach (var item in results.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
+                }
+            }
+            //Eğer kullanıcı İptal tuşuna basarsa;
+            else if (menuName == "cancel")
+            {
+                return RedirectToAction("NewMessage");
+            }
             return View();
+
+
+        }
+        public ActionResult DraftMessages()
+        {
+            var result = messageManager.GetDraftList();
+            return View(result);
+        }
+        public ActionResult DeleteMessage(int id)
+        {
+            var result = messageManager.GetByMessageId(id);
+            result.isTrash = true;
+            messageManager.Update(result);
+            return RedirectToAction("Inbox");
+        }
+        public ActionResult TrashMessageList()
+        {
+            var result = messageManager.GetTrashList();
+            return View(result);
         }
     }
 }

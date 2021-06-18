@@ -11,7 +11,8 @@ using System.Web.Mvc;
 
 namespace MvcBlog.Controllers
 {
-    [Authorize(Roles ="A")]
+    [Authorize(Roles ="A")] 
+    // Giriş yapan kişinin rolü A değilse bu controllera erişemez
     public class AdminCategoryController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());

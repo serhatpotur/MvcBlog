@@ -144,7 +144,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
+    <Compile Include="Controllers\WriterMessagePanelController.cs" />
+    <Compile Include="Controllers\WriterPanelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -173,6 +176,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SS\sss.png" />
     <Content Include="themes\AdminLTE\build\config\postcss.config.js" />
     <Content Include="themes\AdminLTE\build\config\rollup.config.js" />
     <Content Include="themes\AdminLTE\build\js\AdminLTE.js" />
@@ -2026,6 +2030,16 @@
     <Content Include="themes\PageError\img\bg.jpg" />
     <Content Include="themes\PageError\index.html" />
     <Content Include="themes\PageError\readme.txt" />
+    <Content Include="themes\web\css\style.css" />
+    <Content Include="themes\web\images\5.jpg" />
+    <Content Include="themes\web\images\img1.jpg" />
+    <Content Include="themes\web\images\sprite.png" />
+    <Content Include="themes\web\index.html" />
+    <Content Include="themes\web\js\bars.js" />
+    <Content Include="themes\web\js\easyResponsiveTabs.js" />
+    <Content Include="themes\web\js\jquery-1.11.1.min.js" />
+    <Content Include="themes\web\js\jquery.circlechart.js" />
+    <Content Include="themes\web\w3layouts-License.txt" />
     <Content Include="Views\Istatistik\istatistik.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -2427,6 +2441,15 @@
     <Content Include="themes\login\scss\bootstrap\_variables.scss" />
     <Content Include="themes\login\scss\style.scss" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_WriterLayout.cshtml" />
+    <Content Include="Views\WriterPanel\WriterProfile.cshtml" />
+    <Content Include="Views\WriterPanel\MyHeading.cshtml" />
+    <Content Include="Views\WriterPanel\NewHeading.cshtml" />
+    <Content Include="Views\WriterPanel\UpdateHeading.cshtml" />
+    <Content Include="Views\WriterMessagePanel\WriterInbox.cshtml" />
+    <Content Include="Views\MyProfile\Index.cshtml" />
+    <Content Include="Views\Message\DraftMessages.cshtml" />
+    <Content Include="Views\Message\TrashMessageList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

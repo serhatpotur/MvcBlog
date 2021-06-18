@@ -33,14 +33,34 @@ namespace Business.Concrate
             return _messageDal.Get(x => x.MessageID == id);
         }
 
+        public List<Message> GetDraftList()
+        {
+            return _messageDal.List(x => x.isDraft == true);
+        }
+
         public List<Message> GetInboxList()
         {
-            return _messageDal.List(x=>x.ReceiverMail=="admin@gmail.com");
+            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com" && x.isTrash == false);
+        }
+
+        public List<Message> GetReadList()
+        {
+            return _messageDal.List(x => x.isRead == true);
         }
 
         public List<Message> GetSendboxList()
         {
             return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
+        }
+
+        public List<Message> GetTrashList()
+        {
+            return _messageDal.List(x => x.isTrash == true);
+        }
+
+        public List<Message> GetUnReadList()
+        {
+            return _messageDal.List(x => x.isRead == false);
         }
 
         public void Update(Message message)

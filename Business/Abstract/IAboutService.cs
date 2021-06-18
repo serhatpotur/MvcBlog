@@ -10,6 +10,7 @@ namespace Business.Abstract
     public interface IAboutService
     {
         List<About> GetList();
+        About GetByID(int id);
         void Add(About about);
         void Delete(About about);
         void Update(About about);

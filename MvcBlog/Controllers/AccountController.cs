@@ -11,6 +11,7 @@ using System.Web.Security;
 
 namespace MvcBlog.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         AdminManager adminManager = new AdminManager(new EfAdminDal()); 
@@ -23,15 +24,13 @@ namespace MvcBlog.Controllers
         [HttpPost]
         public ActionResult Login(Admin admin)
         {
-            //Context context = new Context();
-
-            //var result = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
+            
             var result = adminManager.GetUsernamePassword(admin.AdminUserName, admin.AdminPassword);
             if (result !=null)
             {
-                FormsAuthentication.SetAuthCookie(result.AdminUserName,false);
+                FormsAuthentication.SetAuthCookie(result.AdminUserName,false); //false: kalıcı cookie oluşmasın
                 Session["AdminUserName"] = result.AdminUserName;
-                return RedirectToAction("CategoryList", "AdminCategory");
+                return RedirectToAction("Inbox", "Message");
             }
             else {
                 ViewBag.ErrorMessage = "Giriş Bilgileriniz Hatalı";

@@ -38,6 +38,11 @@ namespace Business.Concrate
             return _headingDal.List();
         }
 
+        public List<Heading> GetListByWriterId()
+        {
+            return _headingDal.List(x => x.WriterID == 2);
+        }
+
         public void Update(Heading heading)
         {
             _headingDal.Update(heading);

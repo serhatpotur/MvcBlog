@@ -60,6 +60,8 @@
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ISkillDal.cs" />
+    <Compile Include="Abstract\IUserDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrate\Context.cs" />
     <Compile Include="Concrate\Repositories\CategorRepository.cs" />
@@ -72,6 +74,8 @@
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfSkillDal.cs" />
+    <Compile Include="EntityFramework\EfUserDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202105141616576_mig_writer_edit.cs" />
     <Compile Include="Migrations\202105141616576_mig_writer_edit.designer.cs">
@@ -108,6 +112,18 @@
     <Compile Include="Migrations\202106131528562_add_admin.cs" />
     <Compile Include="Migrations\202106131528562_add_admin.designer.cs">
       <DependentUpon>202106131528562_add_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181139570_mgg.cs" />
+    <Compile Include="Migrations\202106181139570_mgg.designer.cs">
+      <DependentUpon>202106181139570_mgg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181229523_about.cs" />
+    <Compile Include="Migrations\202106181229523_about.designer.cs">
+      <DependentUpon>202106181229523_about.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181306444_mess.cs" />
+    <Compile Include="Migrations\202106181306444_mess.designer.cs">
+      <DependentUpon>202106181306444_mess.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,6 +165,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106131528562_add_admin.resx">
       <DependentUpon>202106131528562_add_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181139570_mgg.resx">
+      <DependentUpon>202106181139570_mgg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181229523_about.resx">
+      <DependentUpon>202106181229523_about.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181306444_mess.resx">
+      <DependentUpon>202106181306444_mess.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

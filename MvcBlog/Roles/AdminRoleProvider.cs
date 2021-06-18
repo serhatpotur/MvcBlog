@@ -1,4 +1,6 @@
-﻿using DataAccess.Concrate;
+﻿using Business.Concrate;
+using DataAccess.Concrate;
+using DataAccess.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ namespace MvcBlog.Roles
 {
     public class AdminRoleProvider : RoleProvider
     {
+        AdminManager adminManager = new AdminManager(new EfAdminDal()); 
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
@@ -38,8 +41,9 @@ namespace MvcBlog.Roles
 
         public override string[] GetRolesForUser(string username)
         {
-            Context context = new Context();
-            var result = context.Admins.FirstOrDefault(x => x.AdminUserName == username);
+            // Context context = new Context();
+            // var result = context.Admins.FirstOrDefault(x => x.AdminUserName == username);
+            var result = adminManager.GetByUserName(username);
             return new string[] { result.AdminRole };
         }
 
