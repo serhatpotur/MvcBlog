@@ -13,6 +13,7 @@ namespace MvcBlog.Controllers
     public class ContactController : Controller
     {
         ContactManager contactManager = new ContactManager(new EfContactDal());
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
         Context context = new Context();
         // GET: Contact
         public ActionResult ContactList()
@@ -27,14 +28,18 @@ namespace MvcBlog.Controllers
         }
         public PartialViewResult ContactSideBar()
         {
-            var ReceiverCount = context.Messages.Where(x => x.ReceiverMail == "admin@gmail.com").Count();
-            var SenderCount = context.Messages.Where(x => x.SenderMail == "admin@gmail.com").Count();
-            var ContactCount = context.Contacts.Count();
-            var DraftCount = context.Messages.Where(x => x.SenderMail == "admin@gmail.com" && x.isDraft == true).Count();
-            ViewBag.d1 = ReceiverCount;
+            var UnReadInox = messageManager.GetUnReadInboxList().Count;
+            var SenderCount = messageManager.GetSendboxList().Count;
+            var ContactCount = contactManager.GetList().Count;
+            var DraftCount = messageManager.GetDraftList().Count;
+            var ReadInbox = messageManager.GetReadInboxList().Count;
+            var TrashListCount = messageManager.GetTrashList().Count;
+            ViewBag.d1 = UnReadInox;
             ViewBag.d2 = SenderCount;
             ViewBag.d3 = ContactCount;
             ViewBag.d4 = DraftCount;
+            ViewBag.d5 = ReadInbox;
+            ViewBag.d6 = TrashListCount;
             return PartialView();
         }
     }

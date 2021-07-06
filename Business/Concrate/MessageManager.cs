@@ -35,7 +35,7 @@ namespace Business.Concrate
 
         public List<Message> GetDraftList()
         {
-            return _messageDal.List(x => x.isDraft == true);
+            return _messageDal.List(x => x.isDraft == true && x.isTrash == false);
         }
 
         public List<Message> GetInboxList()
@@ -43,24 +43,24 @@ namespace Business.Concrate
             return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com" && x.isTrash == false);
         }
 
-        public List<Message> GetReadList()
+        public List<Message> GetReadInboxList()
         {
-            return _messageDal.List(x => x.isRead == true);
+            return _messageDal.List(x => x.isRead == true && x.ReceiverMail == "admin@gmail.com" && x.isTrash == false && x.isDraft == false);
         }
 
         public List<Message> GetSendboxList()
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
+            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.isDraft == false);
         }
 
         public List<Message> GetTrashList()
         {
-            return _messageDal.List(x => x.isTrash == true);
+            return _messageDal.List(x => x.isTrash == true && x.isDraft == false);
         }
 
-        public List<Message> GetUnReadList()
+        public List<Message> GetUnReadInboxList()
         {
-            return _messageDal.List(x => x.isRead == false);
+            return _messageDal.List(x => x.isRead == false && x.ReceiverMail == "admin@gmail.com" && x.isTrash == false && x.isDraft == false);
         }
 
         public void Update(Message message)

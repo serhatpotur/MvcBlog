@@ -125,6 +125,10 @@
     <Compile Include="Migrations\202106181306444_mess.designer.cs">
       <DependentUpon>202106181306444_mess.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107061150094_migg.cs" />
+    <Compile Include="Migrations\202107061150094_migg.designer.cs">
+      <DependentUpon>202107061150094_migg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -174,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106181306444_mess.resx">
       <DependentUpon>202106181306444_mess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107061150094_migg.resx">
+      <DependentUpon>202107061150094_migg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -30,7 +30,7 @@
                     <div class="mailbox-read-info">
                         <h5>@Model.MessageSubject</h5> <br />
                         <h6>
-                            @Model.ReceiverMail 
+                            @Model.ReceiverMail
                             <span class="mailbox-read-time float-right">@Model.MessageDate.ToShortDateString()</span>
                         </h6>
                     </div>
@@ -51,9 +51,10 @@
                         <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> Reply</button>
                         <button type="button" class="btn btn-default"><i class="fas fa-share"></i> Forward</button>
                     </div>
-                    <button type="button"  class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>
-                    @Html.ActionLink("Sil", "DeleteMessage", new { id = Model.MessageID}, new { @class = "btn btn-default " })
-                    <button type="button" class="btn btn-default"><i class="fas fa-check"></i> Okundu</button>
+                    @*<button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>*@
+                    @Html.ActionLink("Sil", "DeleteMessage", new { id = Model.MessageID }, new { @class = "btn btn-default fa fa-trash-alt" })
+                @Html.ActionLink("Okundu", "ReadMessage", new { id = Model.MessageID }, new { @class = "btn btn-default fa fa-check-double" })
+                    @*<button type="button" class="btn btn-default"><i class="fas fa-check"></i> Okundu</button>*@
                 </div>
                 <!-- /.card-footer -->
             </div>

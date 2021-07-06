@@ -10,14 +10,14 @@ namespace Business.Abstract
     public interface IMessageService
     {
         List<Message> GetInboxList();
-        List<Message> GetSendboxList();
-        List<Message> GetDraftList();
-        List<Message> GetReadList();
-        List<Message> GetUnReadList();
-        List<Message> GetTrashList();
+        List<Message> GetSendboxList();  // Gönderilen Mesajlar
+        List<Message> GetDraftList();  // Taslak Mesajlar
+        List<Message> GetReadInboxList();  // Gelen- Okunmuş Mesajlar
+        List<Message> GetUnReadInboxList();  // Gelen - Okunmamış Mesajlar
+        List<Message> GetTrashList();  // Silinen mesajlar
         Message GetByMessageId(int id);
-        void Add(Message message);
-        void Update(Message message);
-        void Delete(Message message);
+        void Add(Message message);  //Mesaj Ekle
+        void Update(Message message);  // Mesaj Güncelle
+        void Delete(Message message); // Mesaj Sil
     }
 }

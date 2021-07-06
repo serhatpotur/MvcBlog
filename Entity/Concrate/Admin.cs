@@ -17,5 +17,6 @@ namespace Entity.Concrate
         public string AdminPassword { get; set; }
         [StringLength(1)]
         public string AdminRole { get; set; }
+        public string AdminPasswordSalt { get; set; }
     }
 }

@@ -58,6 +58,9 @@
       <HintPath>..\packages\FluentValidation.10.1.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SimpleCrypto, Version=26.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -2333,7 +2336,7 @@
     <Content Include="Views\Contact\ContactList.cshtml" />
     <Content Include="Views\Contact\GetContactDetails.cshtml" />
     <Content Include="Views\Contact\ContactSideBar.cshtml" />
-    <Content Include="Views\Message\Inbox.cshtml" />
+    <Content Include="Views\Message\UnReadInbox.cshtml" />
     <Content Include="Views\Message\Sendbox.cshtml" />
     <Content Include="Views\Message\GetInboxMessageDetails.cshtml" />
     <Content Include="Views\Message\NewMessage.cshtml" />
@@ -2450,6 +2453,7 @@
     <Content Include="Views\MyProfile\Index.cshtml" />
     <Content Include="Views\Message\DraftMessages.cshtml" />
     <Content Include="Views\Message\TrashMessageList.cshtml" />
+    <Content Include="Views\Message\ReadInbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

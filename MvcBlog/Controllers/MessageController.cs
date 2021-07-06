@@ -17,9 +17,14 @@ namespace MvcBlog.Controllers
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
         // GET: Message
-        public ActionResult Inbox()
+        public ActionResult UnReadInbox()
         {
-            var results = messageManager.GetInboxList();
+            var results = messageManager.GetUnReadInboxList();
+            return View(results);
+        }
+        public ActionResult ReadInbox()
+        {
+            var results = messageManager.GetReadInboxList();
             return View(results);
         }
         public ActionResult Sendbox()
@@ -105,7 +110,14 @@ namespace MvcBlog.Controllers
             var result = messageManager.GetByMessageId(id);
             result.isTrash = true;
             messageManager.Update(result);
-            return RedirectToAction("Inbox");
+            return RedirectToAction("UnReadInbox");
+        }
+        public ActionResult ReadMessage(int id)
+        {
+            var result = messageManager.GetByMessageId(id);
+            result.isRead = true;
+            messageManager.Update(result);
+            return RedirectToAction("UnReadInbox");
         }
         public ActionResult TrashMessageList()
         {
