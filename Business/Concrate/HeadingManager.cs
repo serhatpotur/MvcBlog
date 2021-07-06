@@ -38,9 +38,9 @@ namespace Business.Concrate
             return _headingDal.List();
         }
 
-        public List<Heading> GetListByWriterId()
+        public List<Heading> GetListByWriterId(int id)
         {
-            return _headingDal.List(x => x.WriterID == 2);
+            return _headingDal.List(x => x.WriterID == 2 && x.isActive == true); //session olacak
         }
 
         public void Update(Heading heading)

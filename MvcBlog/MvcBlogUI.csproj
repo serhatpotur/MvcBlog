@@ -150,7 +150,9 @@
     <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Controllers\WriterMessagePanelController.cs" />
-    <Compile Include="Controllers\WriterPanelController.cs" />
+    <Compile Include="Controllers\WriterPanelControllers\WriterPanelMessageController.cs" />
+    <Compile Include="Controllers\WriterPanellController.cs" />
+    <Compile Include="Controllers\WriterPanelControllers\WriterPanelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2454,6 +2456,15 @@
     <Content Include="Views\Message\DraftMessages.cshtml" />
     <Content Include="Views\Message\TrashMessageList.cshtml" />
     <Content Include="Views\Message\ReadInbox.cshtml" />
+    <Content Include="Views\WriterPanelMessage\WriterUnReadInbox.cshtml" />
+    <Content Include="Views\WriterPanelMessage\MessageListMenü.cshtml" />
+    <Content Include="Views\WriterPanelMessage\WriterReadInbox.cshtml" />
+    <Content Include="Views\WriterPanelMessage\WriterSendbox.cshtml" />
+    <Content Include="Views\WriterPanelMessage\GetWriterInboxMessageDetails.cshtml" />
+    <Content Include="Views\WriterPanelMessage\GetWriterSendboxMessageDetails.cshtml" />
+    <Content Include="Views\WriterPanelMessage\NewWriterMessage.cshtml" />
+    <Content Include="Views\WriterPanelMessage\WriterDraftMessages.cshtml" />
+    <Content Include="Views\WriterPanelMessage\WriterTrashMessageList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-
 @using (Html.BeginForm("NewHeading", "WriterPanel", FormMethod.Post, new { style = "padding-top:20px" }))
 {
 
@@ -21,7 +20,7 @@
         <div class="form-group">
             @Html.Label("Başlık Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.HeadingDate, new { @class = "form-control", @Value = @DateTime.Now.ToShortDateString() })
+                @Html.TextBoxFor(model => model.HeadingDate, new { @class = "form-control", @Value = @DateTime.Now.ToShortDateString(), @readonly = true })
                 @Html.ValidationMessageFor(model => model.HeadingDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -33,7 +32,7 @@
                 @Html.ValidationMessageFor(model => model.Category.CategoryName, "", new { @class = "text-danger" })
             </div>
         </div>
-       
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @Html.ActionLink("Listeye Dön", "MyHeading", null, new { @class = "btn btn-danger" })
@@ -42,3 +41,5 @@
         </div>
     </div>
 }
+
+

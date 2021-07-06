@@ -26,10 +26,10 @@ namespace MvcBlog.Controllers
         [HttpPost]
         public ActionResult Login(Admin admin)
         {
-            SHA1 sha = new SHA1CryptoServiceProvider();
-            string password = admin.AdminPassword;
-            string gelen = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(password)));
-            admin.AdminPassword = gelen;
+            //SHA1 sha = new SHA1CryptoServiceProvider();
+            //string password = admin.AdminPassword;
+            //string gelen = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            //admin.AdminPassword = gelen;
           
             var result = adminManager.GetUsernamePassword(admin.AdminUserName, admin.AdminPassword);
             if (result != null)
@@ -37,7 +37,7 @@ namespace MvcBlog.Controllers
 
                 FormsAuthentication.SetAuthCookie(result.AdminUserName, false); //false: kalıcı cookie oluşmasın
                 Session["AdminUserName"] = result.AdminUserName;
-                return RedirectToAction("Inbox", "UnReadMessage");
+                return RedirectToAction("UnReadInbox", "Message");
 
 
             }

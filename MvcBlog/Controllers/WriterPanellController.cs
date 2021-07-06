@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace MvcBlog.Controllers
 {
-    public class WriterPanelController : Controller
+    public class WriterPanellController : Controller
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
@@ -19,10 +19,10 @@ namespace MvcBlog.Controllers
             return View();
         }
 
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(int id)
         {
 
-            var result = headingManager.GetListByWriterId();
+            var result = headingManager.GetListByWriterId(2);
             return View(result);
         }
         [HttpGet]

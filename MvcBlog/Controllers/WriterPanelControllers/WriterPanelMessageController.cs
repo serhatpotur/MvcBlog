@@ -9,46 +9,46 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MvcBlog.Controllers
+namespace MvcBlog.Controllers.WriterPanelControllers
 {
-    //[Authorize]
-    public class MessageController : Controller
+    
+    public class WriterPanelMessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
-        // GET: Message
-        public ActionResult UnReadInbox()
+        // GET: WriterPanelMessage
+        public ActionResult WriterUnReadInbox()
         {
             var results = messageManager.GetUnReadInboxList();
             return View(results);
         }
-        public ActionResult ReadInbox()
+        public ActionResult WriterReadInbox()
         {
             var results = messageManager.GetReadInboxList();
             return View(results);
         }
-        public ActionResult Sendbox()
+        public ActionResult WriterSendbox()
         {
             var results = messageManager.GetSendboxList();
             return View(results);
         }
-        public ActionResult GetInboxMessageDetails(int id)
+        public ActionResult GetWriterInboxMessageDetails(int id)
         {
             var results = messageManager.GetByMessageId(id);
             return View(results);
         }
-        public ActionResult GetSendboxMessageDetails(int id)
+        public ActionResult GetWriterSendboxMessageDetails(int id)
         {
             var results = messageManager.GetByMessageId(id);
             return View(results);
         }
         [HttpGet]
-        public ActionResult NewMessage()
+        public ActionResult NewWriterMessage()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult NewMessage(Message message, string menuName)
+        public ActionResult NewWriterMessage(Message message, string menuName)
         {
             ValidationResult results = messageValidator.Validate(message);
             //Gönder Butonuna basılmış ise
@@ -100,29 +100,45 @@ namespace MvcBlog.Controllers
 
 
         }
-        public ActionResult DraftMessages()
+        public ActionResult WriterDraftMessages()
         {
             var result = messageManager.GetDraftList();
             return View(result);
         }
-        public ActionResult DeleteMessage(int id)
+        public ActionResult WriterDeleteMessage(int id)
         {
             var result = messageManager.GetByMessageId(id);
             result.isTrash = true;
             messageManager.Update(result);
             return RedirectToAction("UnReadInbox");
         }
-        public ActionResult ReadMessage(int id)
+        public ActionResult WriterReadMessage(int id)
         {
             var result = messageManager.GetByMessageId(id);
             result.isRead = true;
             messageManager.Update(result);
             return RedirectToAction("UnReadInbox");
         }
-        public ActionResult TrashMessageList()
+        public ActionResult WriterTrashMessageList()
         {
             var result = messageManager.GetTrashList();
             return View(result);
+        }
+        public PartialViewResult MessageListMenü()
+        {
+            var UnReadInox = messageManager.GetUnReadInboxList().Count;
+            var SenderCount = messageManager.GetSendboxList().Count;
+            
+            var DraftCount = messageManager.GetDraftList().Count;
+            var ReadInbox = messageManager.GetReadInboxList().Count;
+            var TrashListCount = messageManager.GetTrashList().Count;
+            ViewBag.d1 = UnReadInox;
+            ViewBag.d2 = SenderCount;
+            
+            ViewBag.d4 = DraftCount;
+            ViewBag.d5 = ReadInbox;
+            ViewBag.d6 = TrashListCount;
+            return PartialView();
         }
     }
 }

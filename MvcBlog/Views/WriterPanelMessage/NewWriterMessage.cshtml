@@ -1,0 +1,82 @@
+﻿@model Entity.Concrate.Message
+@{
+    ViewBag.Title = "NewWriterMessage";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="container-fluid pt-2">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="mailbox.html" class="btn btn-primary btn-block mb-3">Back to Inbox</a>
+
+            @Html.Action("MessageListMenü", "WriterPanelMessage")
+        </div>
+
+        <div class="col-md-9">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Yeni Mesaj Oluştur</h3>
+                </div>
+
+                <div class="card-body">
+                    @using (Html.BeginForm("NewMessage", "Message", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.ReceiverMail, null, new { @class = "form-control", placeholder = "Alıcı" })
+                            @Html.ValidationMessageFor(model => model.ReceiverMail, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.MessageSubject, null, new { @class = "form-control", placeholder = "Konu" })
+                            @Html.ValidationMessageFor(model => model.MessageSubject, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <textarea id="compose-textarea" class="form-control" name="MessageContent" style="height: 600px">
+
+                                </textarea>
+                            @*@Html.TextAreaFor(model => model.MessageContent, new { @class = "form-control", @id = "compose-textarea", @style = "height: 600px" })
+                                @Html.ValidationMessageFor(model => model.MessageContent, "", new { @class = "text-danger" })*@
+                        </div>
+                        <div class="form-group">
+                            <div class="btn btn-default btn-file">
+                                <i class="fas fa-paperclip"></i> Dosya
+                                <input type="file" name="attachment">
+                            </div>
+                            <p class="help-block">Max. 32MB</p>
+                        </div>
+                        <div class="float-right">
+                            <button type="submit" name="menuName" value="draft" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslak</button>
+                            <button type="submit" name="menuName" value="send" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                        </div>
+                        <button type="reset" name="menuName" value="cancel" class="btn btn-default"><i class="fas fa-times"></i> İptal</button>
+                    }
+                </div>
+
+                @*<div class="card-footer">*@
+
+                @*</div>*@
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="~/themes/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/themes/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/themes/AdminLTE/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/themes/AdminLTE/dist/js/demo.js"></script>
+<script src="~/themes/AdminLTE/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+    $(function () {
+        //Add text editor
+        $('#compose-textarea').summernote()
+    })
+</script>

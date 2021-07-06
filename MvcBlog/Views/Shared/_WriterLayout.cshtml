@@ -1,9 +1,4 @@
-﻿
-@{
-    Layout = null;
-}
-
-@{
+﻿@{
     Layout = null;
 }
 
@@ -64,7 +59,7 @@ to get the desired effect
                         <img src="~/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">dfgdfgdfg</a>
+                        <a href="#" class="d-block">Writer Panel</a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
@@ -72,18 +67,18 @@ to get the desired effect
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-
+                       
+                            <li class="nav-item has-treeview">
+                                <a href="/AdminCategory/CategoryList" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Profilim
+                                    </p>
+                                </a>
+                            </li>
+                        
                         <li class="nav-item has-treeview">
-                            <a href="/AdminCategory/CategoryList" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Profilim
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item has-treeview">
-                            <a href="/WriterPanel/MyHeading" class="nav-link">
+                            <a href="/WriterPanel/MyHeading/" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Başlıklarım
@@ -98,23 +93,16 @@ to get the desired effect
                                 </p>
                             </a>
                         </li>
-
+                        
                         <li class="nav-item has-treeview">
-                            <a href="/WriterMessagePanel/WriterInbox" class="nav-link">
+                            <a href="/Message/Inbox" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     Mesajlarım
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Yazılar
-                                </p>
-                            </a>
-                        </li>
+                      
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>

@@ -5,18 +5,19 @@
 }
 
 
+
 @using (Html.BeginForm("UpdateHeading", "WriterPanel", FormMethod.Post, new { style = "padding-top:20px" }))
 {
 
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.Label("Başlık ID", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.HeadingID, null, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.HeadingID, "", new { @class = "text-danger" })
-            </div>
+
+        @*@Html.Label("Başlık ID", new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.HeadingID, new { @class = "form-control" })
+            @*@Html.ValidationMessageFor(model => model.HeadingID, "", new { @class = "text-danger" })*@
         </div>
+
         <div class="form-group">
             @Html.Label("Başlık Adı", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -28,7 +29,7 @@
         <div class="form-group">
             @Html.Label("Başlık Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.HeadingDate, new { @class = "form-control", @Value = @DateTime.Now.ToShortDateString() })
+                @Html.TextBoxFor(model => model.HeadingDate, "{0:dd MM yyyy}", new { @class = "form-control", @readonly= true @*@Value = @DateTime.Now.ToShortDateString()*@ })
                 @Html.ValidationMessageFor(model => model.HeadingDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -40,7 +41,7 @@
                 @Html.ValidationMessageFor(model => model.Category.CategoryName, "", new { @class = "text-danger" })
             </div>
         </div>
-       
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @Html.ActionLink("Listeye Dön", "MyHeading", null, new { @class = "btn btn-danger" })
@@ -49,5 +50,7 @@
         </div>
     </div>
 }
+
+
 
 
