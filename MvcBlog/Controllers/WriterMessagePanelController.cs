@@ -12,14 +12,17 @@ namespace MvcBlog.Controllers
     public class WriterMessagePanelController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         // GET: WriterMessagePanel
-        public ActionResult WriterInbox()
+        public ActionResult WriterInbox( )
         {
+            
             var results = messageManager.GetInboxList();
             return View(results);
         }
-        public ActionResult WriterSendbox()
+        public ActionResult WriterSendbox( )
         {
+            
             var results = messageManager.GetSendboxList();
             return View(results);
         }

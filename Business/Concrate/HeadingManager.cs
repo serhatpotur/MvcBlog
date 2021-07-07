@@ -40,7 +40,7 @@ namespace Business.Concrate
 
         public List<Heading> GetListByWriterId(int id)
         {
-            return _headingDal.List(x => x.WriterID == 2 && x.isActive == true); //session olacak
+            return _headingDal.List(x => x.WriterID == id && x.isActive == true); //session olacak
         }
 
         public void Update(Heading heading)

@@ -10,6 +10,16 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@ViewBag.Title</title>
 
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/themes/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/themes/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/themes/AdminLTE/plugins/jqvmap/jqvmap.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/themes/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/themes/AdminLTE/plugins/daterangepicker/daterangepicker.css">
 
 
     <!-- Font Awesome Icons -->
@@ -24,7 +34,7 @@
 
     <link rel="stylesheet" href="~/themes/AdminLTE/plugins/summernote/summernote-bs4.css">
 
-    <script src="~/themes/AdminLTE/plugins/summernote/summernote.min.js"></script>
+    
     <!-- Google Font: Source Sans Pro -->
 
 
@@ -148,7 +158,7 @@ to get the desired effect
                             </li>
                         }
                         <li class="nav-item has-treeview">
-                            <a href="/Message/Inbox" class="nav-link">
+                            <a href="/Message/UnReadInbox" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     Mesajlar
@@ -226,7 +236,7 @@ to get the desired effect
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    @*<script src="~/Theme/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>*@
+    <script src="~/Theme/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="~/themes/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
@@ -235,5 +245,42 @@ to get the desired effect
     <script src="~/themes/AdminLTE/plugins/chart.js/Chart.min.js"></script>
     <script src="~/themes/AdminLTE/dist/js/demo.js"></script>
     <script src="~/themes/AdminLTE/dist/js/pages/dashboard3.js"></script>
+    <script src="~/themes/AdminLTE/plugins/summernote/summernote.min.js"></script>
+
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/themes/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Sparkline -->
+    <script src="~/themes/AdminLTE/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="~/themes/AdminLTE/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/themes/AdminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/themes/AdminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/themes/AdminLTE/plugins/moment/moment.min.js"></script>
+    <script src="~/themes/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/themes/AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/themes/AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+    <script src="~/themes/AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/themes/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/themes/AdminLTE/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/themes/AdminLTE/dist/js/demo.js"></script>
+    <script src="~/themes/AdminLTE/plugins/summernote/summernote-bs4.min.js"></script>
+    <script>
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote()
+        })
+    </script>
 </body>
 </html>

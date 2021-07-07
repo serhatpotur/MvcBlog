@@ -15,20 +15,25 @@ namespace MvcBlog.Controllers
     public class MessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
+        AdminManager adminManager = new AdminManager(new EfAdminDal());
         MessageValidator messageValidator = new MessageValidator();
         // GET: Message
+
         public ActionResult UnReadInbox()
         {
+           
             var results = messageManager.GetUnReadInboxList();
             return View(results);
         }
-        public ActionResult ReadInbox()
+        public ActionResult ReadInbox( )
         {
+            
             var results = messageManager.GetReadInboxList();
             return View(results);
         }
-        public ActionResult Sendbox()
+        public ActionResult Sendbox( )
         {
+          
             var results = messageManager.GetSendboxList();
             return View(results);
         }

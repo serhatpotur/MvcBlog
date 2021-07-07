@@ -12,6 +12,8 @@ namespace MvcBlog
     {
         protected void Application_Start()
         {
+            // Authorize işlemini proje seviyesine çıkarttık
+            GlobalFilters.Filters.Add(new AuthorizeAttribute());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

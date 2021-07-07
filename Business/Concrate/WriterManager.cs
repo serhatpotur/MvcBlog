@@ -36,6 +36,16 @@ namespace Business.Concrate
             return _writerDal.List();
         }
 
+        public List<Writer> GetUsernamePassword(string username, string password)
+        {
+            return _writerDal.List(x => x.WriterMail == username && x.WriterPassword == password);
+        }
+
+        public Writer GetWriterMail(string mail)
+        {
+            return _writerDal.Get(x => x.WriterMail == mail);
+        }
+
         public void Update(Writer writer)
         {
             _writerDal.Update(writer);

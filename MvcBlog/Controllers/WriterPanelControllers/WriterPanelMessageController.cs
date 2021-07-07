@@ -15,20 +15,24 @@ namespace MvcBlog.Controllers.WriterPanelControllers
     public class WriterPanelMessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         MessageValidator messageValidator = new MessageValidator();
         // GET: WriterPanelMessage
-        public ActionResult WriterUnReadInbox()
+        public ActionResult WriterUnReadInbox( )
         {
+            
             var results = messageManager.GetUnReadInboxList();
             return View(results);
         }
-        public ActionResult WriterReadInbox()
+        public ActionResult WriterReadInbox( )
         {
+           
             var results = messageManager.GetReadInboxList();
             return View(results);
         }
-        public ActionResult WriterSendbox()
+        public ActionResult WriterSendbox( )
         {
+           
             var results = messageManager.GetSendboxList();
             return View(results);
         }
@@ -124,8 +128,10 @@ namespace MvcBlog.Controllers.WriterPanelControllers
             var result = messageManager.GetTrashList();
             return View(result);
         }
-        public PartialViewResult MessageListMenü()
+        
+        public PartialViewResult MessageListMenü( )
         {
+            
             var UnReadInox = messageManager.GetUnReadInboxList().Count;
             var SenderCount = messageManager.GetSendboxList().Count;
             

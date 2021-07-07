@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="card-body">
-                    @using (Html.BeginForm("NewMessage", "Message", FormMethod.Post))
+                    @using (Html.BeginForm("NewWriterMessage", "WriterPanelMessage", FormMethod.Post))
                     {
                         <div class="form-group">
                             @Html.TextBoxFor(model => model.ReceiverMail, null, new { @class = "form-control", placeholder = "Alıcı" })

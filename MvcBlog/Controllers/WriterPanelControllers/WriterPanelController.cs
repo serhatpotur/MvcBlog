@@ -13,14 +13,19 @@ namespace MvcBlog.Controllers.WriterPanelControllers
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
+        int id;
         // GET: WriterPanel
         public ActionResult WriterProfile()
         {
             return View();
         }
-        public ActionResult MyHeading(int id=2)
+        public ActionResult MyHeading(string mail)
         {
-            id = 2;
+            
+            mail = (string)Session["WriterMail"];
+            var writerinfo = writerManager.GetWriterMail(mail);
+            id = writerinfo.WriterID;           
             var result = headingManager.GetListByWriterId(id);
             return View(result);
         }
@@ -41,7 +46,7 @@ namespace MvcBlog.Controllers.WriterPanelControllers
         public ActionResult NewHeading(Heading heading)
         {
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            heading.WriterID = 2;
+            heading.WriterID = id;
             heading.isActive = true;
             headingManager.Add(heading);
 
@@ -64,7 +69,7 @@ namespace MvcBlog.Controllers.WriterPanelControllers
         [HttpPost]
         public ActionResult UpdateHeading(Heading heading)
         {
-            heading.WriterID = 2;
+            heading.WriterID = id;
             heading.isActive = true;
             headingManager.Update(heading);
             return RedirectToAction("MyHeading");

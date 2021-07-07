@@ -13,6 +13,7 @@ namespace MvcBlog.Controllers
     public class ContactController : Controller
     {
         ContactManager contactManager = new ContactManager(new EfContactDal());
+        AdminManager adminManager = new AdminManager(new EfAdminDal());
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         Context context = new Context();
         // GET: Contact
@@ -26,8 +27,10 @@ namespace MvcBlog.Controllers
             var results = contactManager.GetById(id);
             return View(results);
         }
-        public PartialViewResult ContactSideBar()
+        public PartialViewResult ContactSideBar(string mail)
         {
+          
+
             var UnReadInox = messageManager.GetUnReadInboxList().Count;
             var SenderCount = messageManager.GetSendboxList().Count;
             var ContactCount = contactManager.GetList().Count;

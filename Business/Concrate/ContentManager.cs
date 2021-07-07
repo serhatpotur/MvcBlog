@@ -23,6 +23,11 @@ namespace Business.Concrate
             _contentDal.Insert(content);
         }
 
+        public List<Content> ContentListByWriter(int id)
+        {
+            return _contentDal.List(x => x.WriterID == id);
+        }
+
         public void Delete(Content content)
         {
             _contentDal.Delete(content);
