@@ -1,0 +1,29 @@
+﻿@model Entity.Concrate.Content
+@{
+    ViewBag.Title = "AddContent";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddContent", "WriterPanelContent", FormMethod.Post, new { style = "padding-top:20px" }))
+{
+    <input type="hidden" name="HeadingID" value="@ViewBag.hid" />
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("ContentText", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ContentText, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ContentText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Listeye Dön", "HeadingList", null, new { @class = "btn btn-danger" })
+                <button type="submit" class="btn btn-primary">Oluştur</button>
+            </div>
+        </div>
+    </div>
+}

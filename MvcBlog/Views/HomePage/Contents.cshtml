@@ -1,0 +1,55 @@
+﻿@using Entity.Concrate
+@model List<Content>
+
+   <!-- Timelime example  -->
+    <div class="row pt-3 pl-3">
+        <div class="col-md-12">
+            
+
+            <div class="timeline">
+                @foreach (var item in Model)
+                {
+                    <a href="/WriterPanelContent/AddContent/@item.HeadingID" class="btn btn-primary">Yeni Entry</a>
+                    <!-- timeline time label -->
+                    <div class="time-label">
+                        <span class="bg-success">@item.ContentDate.ToShortDateString()</span>
+                    </div>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                    <div>
+                        <i class="fas fa-user bg-info"></i>
+
+                        <div class="timeline-item">
+
+                            <h3 class="timeline-header border-0">
+                                <!-- Yazarın yazdığı yazılara giden link gelecek-->
+                                <a href="#">@item.Writer.WriterName&nbsp;@item.Writer.WriterSurname</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+                    <div>
+                        <i class="fas fa-comments bg-warning"></i>
+
+                        <div class="timeline-item">
+
+                            <div class="timeline-body">
+                                @item.ContentText
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+                <!-- END timeline item -->
+            </div>
+
+            <!-- The time line -->
+
+        </div>
+        <!-- /.col -->
+    </div>
+
+
+

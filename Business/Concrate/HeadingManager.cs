@@ -42,6 +42,7 @@ namespace Business.Concrate
         {
             return _headingDal.List(x => x.WriterID == id && x.isActive == true); //session olacak
         }
+       
 
         public void Update(Heading heading)
         {

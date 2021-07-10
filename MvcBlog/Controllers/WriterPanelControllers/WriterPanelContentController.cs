@@ -1,6 +1,7 @@
 ﻿using Business.Concrate;
 using DataAccess.Concrate;
 using DataAccess.EntityFramework;
+using Entity.Concrate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace MvcBlog.Controllers.WriterPanelControllers
 {
     public class WriterPanelContentController : Controller
     {
-        ContentManager contentManager = new ContentManager(new EfContentDal()); 
-        HeadingManager headingManager = new HeadingManager(new EfHeadingDal()); 
-        WriterManager writerManager = new WriterManager(new EfWriterDal()); 
+        ContentManager contentManager = new ContentManager(new EfContentDal());
+        HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         // GET: WriterPanelContent
         public ActionResult MyContent(String mail)
         {
@@ -26,8 +27,27 @@ namespace MvcBlog.Controllers.WriterPanelControllers
             mail = (string)Session["WriterMail"];
             var writerinfo = writerManager.GetWriterMail(mail);
             id = writerinfo.WriterID;
-            var result = contentManager.ContentListByWriter(id);           
+            var result = contentManager.ContentListByWriter(id);
             return View(result);
+        }
+        [HttpGet]
+        public ActionResult AddContent(int id)
+        {
+            ViewBag.hid = id;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddContent(Content content)
+        {
+            int id;
+            string mail = (string)Session["WriterMail"];
+            var writerinfo = writerManager.GetWriterMail(mail);
+            id = writerinfo.WriterID;
+            content.WriterID = id;
+            content.ContentDate = DateTime.Now;
+            content.isActive = true;
+            contentManager.Add(content);
+            return RedirectToAction("MyContent");
         }
 
     }

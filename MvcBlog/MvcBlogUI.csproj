@@ -147,6 +147,7 @@
     <Compile Include="Controllers\AdminPanelControllers\HomeController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\IstatistikController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\MessageController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\WriterController.cs" />
     <Compile Include="Controllers\WriterMessagePanelController.cs" />
@@ -2583,6 +2584,9 @@
     <Content Include="themes\writerlogin\scss\bootstrap\_variables.scss" />
     <Content Include="themes\writerlogin\scss\style.scss" />
     <Content Include="Views\Account\WriterLogin.cshtml" />
+    <Content Include="Views\HomePage\Headings.cshtml" />
+    <Content Include="Views\HomePage\Contents.cshtml" />
+    <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
