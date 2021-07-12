@@ -14,18 +14,45 @@ namespace MvcBlog.Controllers.WriterPanelControllers
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         WriterManager writerManager = new WriterManager(new EfWriterDal());
+        ContentManager contentManager = new ContentManager(new EfContentDal());
         int id;
         // GET: WriterPanel
+        [HttpGet]
         public ActionResult WriterProfile()
         {
-            return View();
+            string mail = (String)Session["WriterMail"];
+
+
+            var result = writerManager.GetWriterMail(mail);
+            var headingcount = headingManager.GetListByWriterId(result.WriterID).Count;
+            var contentcount = contentManager.ContentListByWriter(result.WriterID).Count;
+            ViewBag.headingcount = headingcount;
+            ViewBag.contentcount = contentcount;
+            ViewBag.FullName = result.WriterName+" "+result.WriterSurname;
+            return View(result);
+        }
+        [HttpPost]
+        public ActionResult WriterProfile(Writer writer)
+        {
+
+            //string mail = (String)Session["WriterMail"];
+            //var writermail = writerManager.GetWriterMail(mail);
+            //writermail.WriterName = writer.WriterName;
+            //writermail.WriterSurname = writer.WriterSurname;
+            //writermail.WriterImage = writer.WriterImage;
+            //writermail.WriterMail = writer.WriterMail;
+            //writermail.WriterPassword = writer.WriterPassword;
+            writer.isActive = true;
+
+            writerManager.Update(writer);
+            return RedirectToAction("WriterProfile");
         }
         public ActionResult MyHeading(string mail)
         {
-            
+
             mail = (string)Session["WriterMail"];
             var writerinfo = writerManager.GetWriterMail(mail);
-            id = writerinfo.WriterID;           
+            id = writerinfo.WriterID;
             var result = headingManager.GetListByWriterId(id);
             return View(result);
         }

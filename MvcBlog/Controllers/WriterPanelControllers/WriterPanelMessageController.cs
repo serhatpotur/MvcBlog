@@ -20,20 +20,20 @@ namespace MvcBlog.Controllers.WriterPanelControllers
         // GET: WriterPanelMessage
         public ActionResult WriterUnReadInbox( )
         {
-            
-            var results = messageManager.GetUnReadInboxList();
+            string mail = (String)Session["WriterMail"];
+            var results = messageManager.GetUnReadInboxList(mail);
             return View(results);
         }
         public ActionResult WriterReadInbox( )
         {
-           
-            var results = messageManager.GetReadInboxList();
+            string mail = (String)Session["WriterMail"];
+            var results = messageManager.GetReadInboxList(mail);
             return View(results);
         }
         public ActionResult WriterSendbox( )
         {
-           
-            var results = messageManager.GetSendboxList();
+            string mail = (String)Session["WriterMail"];
+            var results = messageManager.GetSendboxList(mail);
             return View(results);
         }
         public ActionResult GetWriterInboxMessageDetails(int id)
@@ -131,12 +131,13 @@ namespace MvcBlog.Controllers.WriterPanelControllers
         
         public PartialViewResult MessageListMenü( )
         {
-            
-            var UnReadInox = messageManager.GetUnReadInboxList().Count;
-            var SenderCount = messageManager.GetSendboxList().Count;
+            string mail = (String)Session["WriterMail"];
+
+            var UnReadInox = messageManager.GetUnReadInboxList(mail).Count;
+            var SenderCount = messageManager.GetSendboxList(mail).Count;
             
             var DraftCount = messageManager.GetDraftList().Count;
-            var ReadInbox = messageManager.GetReadInboxList().Count;
+            var ReadInbox = messageManager.GetReadInboxList(mail).Count;
             var TrashListCount = messageManager.GetTrashList().Count;
             ViewBag.d1 = UnReadInox;
             ViewBag.d2 = SenderCount;

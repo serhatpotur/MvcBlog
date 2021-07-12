@@ -21,20 +21,20 @@ namespace MvcBlog.Controllers
 
         public ActionResult UnReadInbox()
         {
-           
-            var results = messageManager.GetUnReadInboxList();
+            string mail = (String)Session["WriterMail"];
+            var results = messageManager.GetUnReadInboxList(mail);
             return View(results);
         }
         public ActionResult ReadInbox( )
         {
-            
-            var results = messageManager.GetReadInboxList();
+            string mail = (String)Session["WriterMail"];
+            var results = messageManager.GetReadInboxList(mail);
             return View(results);
         }
         public ActionResult Sendbox( )
         {
-          
-            var results = messageManager.GetSendboxList();
+            string mail = (String)Session["WriterMail"];
+            var results = messageManager.GetSendboxList(mail);
             return View(results);
         }
         public ActionResult GetInboxMessageDetails(int id)

@@ -16,14 +16,14 @@ namespace MvcBlog.Controllers
         // GET: WriterMessagePanel
         public ActionResult WriterInbox( )
         {
-            
-            var results = messageManager.GetInboxList();
+            string mail = (String)Session["WriterMail"];
+            var results = messageManager.GetInboxList(mail);
             return View(results);
         }
         public ActionResult WriterSendbox( )
         {
-            
-            var results = messageManager.GetSendboxList();
+            string mail = (String)Session["WriterMail"];
+            var results = messageManager.GetSendboxList(mail);
             return View(results);
         }
         public ActionResult WriterGetInboxMessageDetails(int id)

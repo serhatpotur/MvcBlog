@@ -27,15 +27,15 @@ namespace MvcBlog.Controllers
             var results = contactManager.GetById(id);
             return View(results);
         }
-        public PartialViewResult ContactSideBar(string mail)
+        public PartialViewResult ContactSideBar()
         {
-          
 
-            var UnReadInox = messageManager.GetUnReadInboxList().Count;
-            var SenderCount = messageManager.GetSendboxList().Count;
+            string UserName = (String)Session["AdminUserName"];
+            var UnReadInox = messageManager.GetUnReadInboxList(UserName).Count;
+            var SenderCount = messageManager.GetSendboxList(UserName).Count;
             var ContactCount = contactManager.GetList().Count;
             var DraftCount = messageManager.GetDraftList().Count;
-            var ReadInbox = messageManager.GetReadInboxList().Count;
+            var ReadInbox = messageManager.GetReadInboxList(UserName).Count;
             var TrashListCount = messageManager.GetTrashList().Count;
             ViewBag.d1 = UnReadInox;
             ViewBag.d2 = SenderCount;

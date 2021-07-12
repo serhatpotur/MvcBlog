@@ -9,11 +9,11 @@ namespace Business.Abstract
 {
     public interface IMessageService
     {
-        List<Message> GetInboxList();
-        List<Message> GetSendboxList();  // Gönderilen Mesajlar
+        List<Message> GetInboxList(string mail);
+        List<Message> GetSendboxList(string mail);  // Gönderilen Mesajlar
         List<Message> GetDraftList();  // Taslak Mesajlar
-        List<Message> GetReadInboxList();  // Gelen- Okunmuş Mesajlar
-        List<Message> GetUnReadInboxList();  // Gelen - Okunmamış Mesajlar
+        List<Message> GetReadInboxList(string mail);  // Gelen- Okunmuş Mesajlar
+        List<Message> GetUnReadInboxList(string mail);  // Gelen - Okunmamış Mesajlar
         List<Message> GetTrashList();  // Silinen mesajlar
         Message GetByMessageId(int id);
         void Add(Message message);  //Mesaj Ekle

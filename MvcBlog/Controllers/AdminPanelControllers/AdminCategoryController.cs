@@ -8,18 +8,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MvcBlog.Controllers
 {
-    [Authorize(Roles ="A")] 
+    [Authorize(Roles = "A")]
     // Giriş yapan kişinin rolü A değilse bu controllera erişemez
     public class AdminCategoryController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         // GET: AdminCategory
-        public ActionResult CategoryList()
+        public ActionResult CategoryList(int pageNumber = 1)
         {
-            var result = categoryManager.GetList();
+            var result = categoryManager.GetList().ToPagedList(pageNumber, 5);
             return View(result);
         }
         [HttpGet]

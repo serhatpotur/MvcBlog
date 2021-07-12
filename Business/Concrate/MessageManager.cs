@@ -38,19 +38,19 @@ namespace Business.Concrate
             return _messageDal.List(x => x.isDraft == true && x.isTrash == false);
         }
 
-        public List<Message> GetInboxList()
+        public List<Message> GetInboxList(string mail)
         {
-            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com" && x.isTrash == false);
+            return _messageDal.List(x => x.ReceiverMail == mail && x.isTrash == false);
         }
 
-        public List<Message> GetReadInboxList()
+        public List<Message> GetReadInboxList(string mail)
         {
-            return _messageDal.List(x => x.isRead == true && x.ReceiverMail == "admin@gmail.com" && x.isTrash == false && x.isDraft == false);
+            return _messageDal.List(x => x.isRead == true && x.ReceiverMail == mail && x.isTrash == false && x.isDraft == false);
         }
 
-        public List<Message> GetSendboxList()
+        public List<Message> GetSendboxList(string mail)
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.isDraft == false);
+            return _messageDal.List(x => x.SenderMail == mail && x.isDraft == false);
         }
 
         public List<Message> GetTrashList()
@@ -58,9 +58,9 @@ namespace Business.Concrate
             return _messageDal.List(x => x.isTrash == true && x.isDraft == false);
         }
 
-        public List<Message> GetUnReadInboxList()
+        public List<Message> GetUnReadInboxList(string mail)
         {
-            return _messageDal.List(x => x.isRead == false && x.ReceiverMail == "admin@gmail.com" && x.isTrash == false && x.isDraft == false);
+            return _messageDal.List(x => x.isRead == false && x.ReceiverMail == mail && x.isTrash == false && x.isDraft == false);
         }
 
         public void Update(Message message)

@@ -68,7 +68,7 @@ namespace MvcBlog.Controllers
 
                 FormsAuthentication.SetAuthCookie(result.WriterMail, false); //false: kalıcı cookie oluşmasın
                 Session["WriterMail"] = result.WriterMail;
-                return RedirectToAction("MyContent", "WriterPanelContent");
+                return RedirectToAction("WriterProfile", "WriterPanel");
 
 
             }
@@ -83,7 +83,7 @@ namespace MvcBlog.Controllers
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("Login");
+            return RedirectToAction("WriterLogin");
         }
 
     }

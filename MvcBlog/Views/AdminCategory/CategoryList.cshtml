@@ -1,5 +1,8 @@
 ﻿@using Entity.Concrate
-@model List<Category>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Category>
+@*@model List<Category>*@
 @{
     ViewBag.Title = "CategoryList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -30,3 +33,10 @@
     </tbody>
 </table>
 @Html.ActionLink("Kategori Ekle", "AddCategory", null, new { @class = "btn btn-info" })
+@Html.PagedListPager((IPagedList)Model, pageNumber => Url.Action("CategoryList", new { pageNumber }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {
+        "page-link"
+    }
+})
