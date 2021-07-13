@@ -18,10 +18,15 @@ namespace MvcBlog.Controllers.WriterPanelControllers
         WriterManager writerManager = new WriterManager(new EfWriterDal());
         MessageValidator messageValidator = new MessageValidator();
         // GET: WriterPanelMessage
-        public ActionResult WriterUnReadInbox( )
+        public ActionResult WriterUnReadInbox(string search)
         {
             string mail = (String)Session["WriterMail"];
             var results = messageManager.GetUnReadInboxList(mail);
+            if (!string.IsNullOrEmpty(search))
+            {
+                results = results.Where(x => x.MessageContent.Contains(search) || x.MessageSubject.Contains(search) ||x.SenderMail.Contains(search)).ToList();
+            }
+            
             return View(results);
         }
         public ActionResult WriterReadInbox( )

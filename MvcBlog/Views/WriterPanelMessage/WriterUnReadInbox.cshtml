@@ -17,20 +17,29 @@
         <!-- /.col -->
         <div class="col-md-9">
             <div class="card card-primary card-outline">
-                <div class="card-header">
-                    <h3 class="card-title">Gelen Mesajlar</h3>
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm">
-                            <input type="text" class="form-control" placeholder="Mailde Ara">
-                            <div class="input-group-append">
-                                <div class="btn btn-primary">
-                                    <i class="fas fa-search"></i>
+                @using (Html.BeginForm("WriterUnReadInbox", "WriterPanelMessage", FormMethod.Post))
+                {
+                    <div class="card-header">
+                        <h3 class="card-title">Gelen Mesajlar</h3>
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm">
+
+                                @*<input type="text" class="form-control" placeholder="Mailde Ara">*@
+                                @Html.TextBox("search", null, new { @class = "form-control", @placeholder = "Mailde Ara" })
+                                <div class="input-group-append">
+                                    @*<div class="btn btn-primary btn-sm">
+                                            <i class="fas fa-search"></i>
+                                        </div>*@
+                                    <button class="btn btn-primary btn-sm " type="submit"><i class="fas fa-search"></i></button>
                                 </div>
+
+
+
                             </div>
                         </div>
+                        <!-- /.card-tools -->
                     </div>
-                    <!-- /.card-tools -->
-                </div>
+                }
                 <!-- /.card-header -->
                 <div class="card-body p-0">
                     <div class="mailbox-controls">

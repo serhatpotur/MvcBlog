@@ -145,6 +145,7 @@
     <Compile Include="Controllers\AdminPanelControllers\AccountController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\CategoryController.cs" />
+    <Compile Include="Controllers\AdminPanelControllers\ChartController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\ContactController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\ContentController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\ErrorPageController.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Controllers\AdminPanelControllers\HomeController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\IstatistikController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\MessageController.cs" />
+    <Compile Include="Controllers\AdminPanelControllers\ReportController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\WriterController.cs" />
@@ -2597,6 +2599,8 @@
     <Content Include="Views\HomePage\Headings.cshtml" />
     <Content Include="Views\HomePage\Contents.cshtml" />
     <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
+    <Content Include="Views\Chart\PieChart.cshtml" />
+    <Content Include="Views\Report\HeadingReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

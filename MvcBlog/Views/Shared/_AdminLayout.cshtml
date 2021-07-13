@@ -192,7 +192,7 @@ to get the desired effect
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                    with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                         @if (User.IsInRole("A"))
                         {
                             <li class="nav-item has-treeview">
@@ -252,6 +252,38 @@ to get the desired effect
                                 </ul>
                             </li>
                         }
+                        @if (User.IsInRole("A"))
+                        {
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-chart-pie"></i>
+                                    <p>
+                                        Raporlar
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/Report/HeadingReport" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Başlık Raporu </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/charts/flot.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Grafik 2</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/charts/inline.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Grafik 3</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                         <li class="nav-item has-treeview">
                             <a href="/About/AboutList" class="nav-link">
                                 <i class="nav-icon fas fa-tree"></i>
@@ -273,6 +305,7 @@ to get the desired effect
                                 </a>
                             </li>
                         }
+
                         <li class="nav-item has-treeview">
                             <a href="/Message/UnReadInbox" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
