@@ -129,6 +129,10 @@
     <Compile Include="Migrations\202107061150094_migg.designer.cs">
       <DependentUpon>202107061150094_migg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107151311107_wrupdate.cs" />
+    <Compile Include="Migrations\202107151311107_wrupdate.designer.cs">
+      <DependentUpon>202107151311107_wrupdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -181,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107061150094_migg.resx">
       <DependentUpon>202107061150094_migg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107151311107_wrupdate.resx">
+      <DependentUpon>202107151311107_wrupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

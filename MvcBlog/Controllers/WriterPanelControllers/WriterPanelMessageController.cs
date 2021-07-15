@@ -111,7 +111,8 @@ namespace MvcBlog.Controllers.WriterPanelControllers
         }
         public ActionResult WriterDraftMessages()
         {
-            var result = messageManager.GetDraftList();
+            string mail = (String)Session["WriterMail"];
+            var result = messageManager.GetDraftList(mail);
             return View(result);
         }
         public ActionResult WriterDeleteMessage(int id)
@@ -130,7 +131,9 @@ namespace MvcBlog.Controllers.WriterPanelControllers
         }
         public ActionResult WriterTrashMessageList()
         {
-            var result = messageManager.GetTrashList();
+            string mail = (String)Session["WriterMail"];
+
+            var result = messageManager.GetTrashList(mail);
             return View(result);
         }
         
@@ -141,9 +144,9 @@ namespace MvcBlog.Controllers.WriterPanelControllers
             var UnReadInox = messageManager.GetUnReadInboxList(mail).Count;
             var SenderCount = messageManager.GetSendboxList(mail).Count;
             
-            var DraftCount = messageManager.GetDraftList().Count;
+            var DraftCount = messageManager.GetDraftList(mail).Count;
             var ReadInbox = messageManager.GetReadInboxList(mail).Count;
-            var TrashListCount = messageManager.GetTrashList().Count;
+            var TrashListCount = messageManager.GetTrashList(mail).Count;
             ViewBag.d1 = UnReadInox;
             ViewBag.d2 = SenderCount;
             

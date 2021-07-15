@@ -68,6 +68,7 @@ namespace MvcBlog.Controllers
 
                 FormsAuthentication.SetAuthCookie(result.WriterMail, false); //false: kalıcı cookie oluşmasın
                 Session["WriterMail"] = result.WriterMail;
+                Session["WriterUsername"] = result.WriterUsername;
                 return RedirectToAction("WriterProfile", "WriterPanel");
 
 

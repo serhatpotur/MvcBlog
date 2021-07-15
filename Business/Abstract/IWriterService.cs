@@ -12,6 +12,7 @@ namespace Business.Abstract
         List<Writer> GetList();
         List<Writer> GetUsernamePassword(string username,string password);
         Writer GetWriterMail(string mail);
+        Writer GetWriterUsername(string username);
         void Add(Writer writer);
         void Delete(Writer writer);
         void Update(Writer writer);

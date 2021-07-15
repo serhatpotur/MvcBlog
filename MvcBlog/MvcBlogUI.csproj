@@ -144,6 +144,7 @@
     <Compile Include="Controllers\AdminPanelControllers\AboutController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\AccountController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AdminPanelControllers\AuthorizationController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\CategoryController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\ChartController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\ContactController.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\AdminPanelControllers\WriterController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WriterMessagePanelController.cs" />
     <Compile Include="Controllers\WriterPanelControllers\WriterPanelContentController.cs" />
     <Compile Include="Controllers\WriterPanelControllers\WriterPanelMessageController.cs" />
@@ -2601,6 +2603,11 @@
     <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
     <Content Include="Views\Chart\PieChart.cshtml" />
     <Content Include="Views\Report\HeadingReport.cshtml" />
+    <Content Include="Views\Authorization\AdminList.cshtml" />
+    <Content Include="Views\Report\WriterReport.cshtml" />
+    <Content Include="Views\Authorization\PartialWriterList.cshtml" />
+    <Content Include="Views\Shared\_TestLayout.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

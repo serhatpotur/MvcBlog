@@ -12,6 +12,7 @@ namespace MvcBlog.Roles
     public class AdminRoleProvider : RoleProvider
     {
         AdminManager adminManager = new AdminManager(new EfAdminDal()); 
+        WriterManager wm = new WriterManager(new EfWriterDal()); 
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
@@ -43,8 +44,11 @@ namespace MvcBlog.Roles
         {
             // Context context = new Context();
             // var result = context.Admins.FirstOrDefault(x => x.AdminUserName == username);
-            var result = adminManager.GetByUserName(username);
-            return new string[] { result.AdminRole };
+            //var result = adminManager.GetByUserName(username);
+            //return new string[] { result.AdminRole };
+            var result = wm.GetWriterMail(username);
+            return new string[] { result.WriterRole };
+
         }
 
         public override string[] GetUsersInRole(string roleName)

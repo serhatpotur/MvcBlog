@@ -33,9 +33,9 @@ namespace Business.Concrate
             return _messageDal.Get(x => x.MessageID == id);
         }
 
-        public List<Message> GetDraftList()
+        public List<Message> GetDraftList(string mail)
         {
-            return _messageDal.List(x => x.isDraft == true && x.isTrash == false);
+            return _messageDal.List(x => x.isDraft == true && x.isTrash == false && x.SenderMail == mail);
         }
 
         public List<Message> GetInboxList(string mail)
@@ -53,9 +53,9 @@ namespace Business.Concrate
             return _messageDal.List(x => x.SenderMail == mail && x.isDraft == false);
         }
 
-        public List<Message> GetTrashList()
+        public List<Message> GetTrashList(string mail)
         {
-            return _messageDal.List(x => x.isTrash == true && x.isDraft == false);
+            return _messageDal.List(x => x.isTrash == true && x.isDraft == false && x.ReceiverMail == mail);
         }
 
         public List<Message> GetUnReadInboxList(string mail)

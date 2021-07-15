@@ -11,10 +11,10 @@ namespace Business.Abstract
     {
         List<Message> GetInboxList(string mail);
         List<Message> GetSendboxList(string mail);  // Gönderilen Mesajlar
-        List<Message> GetDraftList();  // Taslak Mesajlar
+        List<Message> GetDraftList(string mail);  // Taslak Mesajlar
         List<Message> GetReadInboxList(string mail);  // Gelen- Okunmuş Mesajlar
         List<Message> GetUnReadInboxList(string mail);  // Gelen - Okunmamış Mesajlar
-        List<Message> GetTrashList();  // Silinen mesajlar
+        List<Message> GetTrashList(string mail);  // Silinen mesajlar
         Message GetByMessageId(int id);
         void Add(Message message);  //Mesaj Ekle
         void Update(Message message);  // Mesaj Güncelle

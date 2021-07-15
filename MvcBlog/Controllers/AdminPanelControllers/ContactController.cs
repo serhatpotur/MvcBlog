@@ -30,13 +30,13 @@ namespace MvcBlog.Controllers
         public PartialViewResult ContactSideBar()
         {
 
-            string UserName = (String)Session["AdminUserName"];
+            string UserName = (String)Session["WriterMail"];
             var UnReadInox = messageManager.GetUnReadInboxList(UserName).Count;
             var SenderCount = messageManager.GetSendboxList(UserName).Count;
             var ContactCount = contactManager.GetList().Count;
-            var DraftCount = messageManager.GetDraftList().Count;
+            var DraftCount = messageManager.GetDraftList(UserName).Count;
             var ReadInbox = messageManager.GetReadInboxList(UserName).Count;
-            var TrashListCount = messageManager.GetTrashList().Count;
+            var TrashListCount = messageManager.GetTrashList(UserName).Count;
             ViewBag.d1 = UnReadInox;
             ViewBag.d2 = SenderCount;
             ViewBag.d3 = ContactCount;

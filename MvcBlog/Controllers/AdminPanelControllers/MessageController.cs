@@ -56,14 +56,16 @@ namespace MvcBlog.Controllers
         public ActionResult NewMessage(Message message, string menuName)
         {
             ValidationResult results = messageValidator.Validate(message);
+            string mail = (String)Session["WriterMail"];
             //Gönder Butonuna basılmış ise
             if (menuName == "send")
             {
                 //Validator kontrol ettik
                 if (results.IsValid)
                 {
+                    
                     //Şimdilik kapalı Session ile çekilecek
-                    //message.SenderMail = "admin@gmail.com";
+                    message.SenderMail = mail;
                     message.MessageDate = DateTime.Now;
                     messageManager.Add(message);
                     return RedirectToAction("Sendbox");
@@ -82,7 +84,7 @@ namespace MvcBlog.Controllers
             {
                 if (results.IsValid)
                 {
-                    //message.SenderMail = "admin@gmail.com";
+                    message.SenderMail = mail;
                     message.isDraft = true;
                     message.MessageDate = DateTime.Now;
                     messageManager.Add(message);
@@ -107,7 +109,8 @@ namespace MvcBlog.Controllers
         }
         public ActionResult DraftMessages()
         {
-            var result = messageManager.GetDraftList();
+            string mail = (String)Session["WriterMail"];
+            var result = messageManager.GetDraftList(mail);
             return View(result);
         }
         public ActionResult DeleteMessage(int id)
@@ -126,7 +129,8 @@ namespace MvcBlog.Controllers
         }
         public ActionResult TrashMessageList()
         {
-            var result = messageManager.GetTrashList();
+            string mail = (String)Session["WriterMail"];
+            var result = messageManager.GetTrashList(mail);
             return View(result);
         }
     }

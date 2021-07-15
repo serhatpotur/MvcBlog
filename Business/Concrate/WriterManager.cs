@@ -46,6 +46,11 @@ namespace Business.Concrate
             return _writerDal.Get(x => x.WriterMail == mail);
         }
 
+        public Writer GetWriterUsername(string username)
+        {
+            return _writerDal.Get(x => x.WriterUsername == username);
+        }
+
         public void Update(Writer writer)
         {
             _writerDal.Update(writer);
