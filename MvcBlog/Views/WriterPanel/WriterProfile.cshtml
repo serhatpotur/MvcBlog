@@ -63,7 +63,7 @@
                         <div>
                             @using (Html.BeginForm("WriterProfile", "WriterPanel", FormMethod.Post, new { @class = "form-horizontal" }))
                             {
-                                @Html.HiddenFor(x=>x.WriterID)
+                                @Html.HiddenFor(x => x.WriterID)
                                 <div class="form-group row">
                                     @Html.Label("Adı", new { @class = "col-sm-2 col-form-label" })
                                     @*<label for="inputName" class="col-sm-2 col-form-label">Name</label>*@
@@ -77,6 +77,14 @@
                                     @*<label for="inputName" class="col-sm-2 col-form-label">Name</label>*@
                                     <div class="col-sm-10">
                                         @Html.TextBoxFor(m => m.WriterSurname, new { @class = "form-control" })
+                                        @*<input type="email" class="form-control" id="inputName" placeholder="Name">*@
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    @Html.Label("Kullanıcı Adı", new { @class = "col-sm-2 col-form-label" })
+                                    @*<label for="inputName" class="col-sm-2 col-form-label">Name</label>*@
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(m => m.WriterUsername, new { @class = "form-control" })
                                         @*<input type="email" class="form-control" id="inputName" placeholder="Name">*@
                                     </div>
                                 </div>
@@ -100,7 +108,7 @@
                                     @Html.Label("password", new { @class = "col-sm-2 col-form-label" })
                                     @*<label for="inputName" class="col-sm-2 col-form-label">Name</label>*@
                                     <div class="col-sm-10">
-                                        @Html.PasswordFor(m => m.WriterPassword, new { @class = "form-control" })
+                                        @Html.TextBoxFor(m => m.WriterPassword, new { @class = "form-control" })
                                         @*<input type="email" class="form-control" id="inputName" placeholder="Name">*@
                                     </div>
                                 </div>
@@ -109,7 +117,7 @@
                                         <button type="submit" class="btn btn-success">Submit</button>
                                     </div>
                                 </div>
-
+                                @Html.HiddenFor(m => m.WriterRole, new { @class = "form-control" })
                             }
                             @*<form class="form-horizontal">
             <div class="form-group row">

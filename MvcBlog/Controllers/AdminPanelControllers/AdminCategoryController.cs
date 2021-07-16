@@ -18,10 +18,11 @@ namespace MvcBlog.Controllers
     public class AdminCategoryController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+      HeadingManager hm = new HeadingManager(new EfHeadingDal());
         // GET: AdminCategory
         public ActionResult CategoryList(int pageNumber = 1)
         {
-            var result = categoryManager.GetList().ToPagedList(pageNumber, 5);
+            var result = categoryManager.GetList().ToPagedList(pageNumber, 10);
             return View(result);
         }
         [HttpGet]
@@ -36,6 +37,7 @@ namespace MvcBlog.Controllers
             ValidationResult results = categoryValidator.Validate(category);
             if (results.IsValid)
             {
+                category.CategoryStatüs = true;
                 categoryManager.Add(category);
                 return RedirectToAction("CategoryList");
             }
@@ -52,7 +54,17 @@ namespace MvcBlog.Controllers
         public ActionResult DeleteCategory(int id)
         {
             var result = categoryManager.GetById(id);
-            categoryManager.Delete(result);
+            if (result.CategoryStatüs == true)
+            {
+                result.CategoryStatüs = false;
+                categoryManager.Update(result);
+            }
+            else
+            {
+                result.CategoryStatüs = true;
+                categoryManager.Update(result);
+            }
+
             return RedirectToAction("CategoryList");
         }
         [HttpGet]
@@ -66,6 +78,13 @@ namespace MvcBlog.Controllers
         {
             categoryManager.Update(category);
             return RedirectToAction("CategoryList");
+        }
+        public ActionResult CategoryByHeading(int id)
+        {
+            var result = hm.GetListByCategoryId(id);
+            var category = categoryManager.GetById(id).CategoryName;
+            ViewBag.CategoryName = category;
+            return View(result);
         }
     }
 }

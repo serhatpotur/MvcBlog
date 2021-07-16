@@ -23,6 +23,7 @@ namespace Business.Concrate
             _categoryDal.Insert(category);
         }
 
+       
         public void Delete(Category category)
         {
             _categoryDal.Delete(category);

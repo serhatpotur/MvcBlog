@@ -35,7 +35,10 @@
     <link rel="stylesheet" href="~/themes/AdminLTE/plugins/summernote/summernote-bs4.css">
 
 
-    <!-- Google Font: Source Sans Pro -->
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/themes/AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/themes/AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
 
 
 </head>
@@ -180,7 +183,7 @@ to get the desired effect
                         <img src="~/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">@Session["WriterUsername"]</a>
+                        <a href="/WriterPanel/WriterProfile" class="d-block">@Session["WriterUsername"]</a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
@@ -202,7 +205,7 @@ to get the desired effect
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/AdminCategory/CategoryList/"  class="nav-link">
+                                        <a href="/AdminCategory/CategoryList/" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Kategoriler</p>
                                         </a>
@@ -379,7 +382,6 @@ to get the desired effect
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    <script src="~/Theme/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="~/themes/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
@@ -413,17 +415,45 @@ to get the desired effect
 
     <script src="~/themes/AdminLTE/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="~/themes/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/themes/AdminLTE/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/themes/AdminLTE/dist/js/demo.js"></script>
-    <script src="~/themes/AdminLTE/plugins/summernote/summernote-bs4.min.js"></script>
+   
+
+    <!-- Bootstrap 4 -->
+    <!-- DataTables -->
+    <script src="~/themes/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/themes/AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/themes/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/themes/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <!-- AdminLTE App -->
+    <!-- AdminLTE for demo purposes -->
+    <!-- page script -->
     <script>
         $(function () {
-            //Add text editor
-            $('#compose-textarea').summernote()
-        })
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true
+               
+             
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+                "pageLength": 5
+            });
+        });
     </script>
 </body>
 </html>

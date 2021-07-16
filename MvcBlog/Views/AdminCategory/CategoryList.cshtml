@@ -2,19 +2,19 @@
 @using PagedList
 @using PagedList.Mvc
 @model PagedList.IPagedList<Category>
-@*@model List<Category>*@
+
 @{
     ViewBag.Title = "CategoryList";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-<br />
+
 <table class="table table-hover table-bordered table-sm">
     <tr class="bg-primary text-white">
         <th>Kategori Adı</th>
         <th>Kategori Açıklama</th>
         <th>Kategori Durum</th>
-        <th>Sil</th>
+        <th>Aktif/Pasif</th>
         <th>Güncelle</th>
         <th>Başlıklar</th>
     </tr>
@@ -24,15 +24,30 @@
             <tr>
                 <td>@item.CategoryName</td>
                 <td>@item.CategoryDescription</td>
-                <td>@item.CategoryStatüs</td>
-                <td> @Html.ActionLink("Sil", "DeleteCategory", new { id = item.CategoryID }, new { @class = "btn btn-danger btn-sm" })</td>
-                <td> @Html.ActionLink("Güncelle", "UpdateCategory", new { id = item.CategoryID }, new { @class = "btn btn-warning btn-sm" })</td>
-                <td><a href="#" class="btn btn-outline-warning btn-sm">Başlıklar</a></td>
+                @if (item.CategoryStatüs == true)
+                {
+                    <td class="badge badge-success ">Aktif</td>
+
+                }
+                else
+                {
+                    <td class="badge badge-danger">Pasif</td>
+
+                }
+
+                <td>
+
+                    @Html.ActionLink(" ", "DeleteCategory", new { id = item.CategoryID }, new { @class = "fas fa-sync-alt fa-2x " })
+
+                </td>
+                <td> @Html.ActionLink(" ", "UpdateCategory", new { id = item.CategoryID }, new { @class = "fas fa-edit fa-2x" })</td>
+                <td><a href="/AdminCategory/CategoryByHeading/@item.CategoryID" class="btn btn-outline-warning btn-sm">Başlıklar</a></td>
             </tr>
         }
     </tbody>
 </table>
 @Html.ActionLink("Kategori Ekle", "AddCategory", null, new { @class = "btn btn-info" })
+ 
 @Html.PagedListPager((IPagedList)Model, pageNumber => Url.Action("CategoryList", new { pageNumber }), new PagedListRenderOptions
 {
     LiElementClasses = new List<string>
@@ -40,3 +55,53 @@
         "page-link"
     }
 })
+
+@*<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"></h3>
+        @ Html.ActionLink("Kategori Ekle", "AddCategory", null, new { @class = "btn btn-info" })
+    </div>
+
+    <div class="card-body">
+
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Kategori Adı</th>
+                    <th>Kategori Açıklama</th>
+                    <th>Kategori Durum</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                    <th>Başlıklar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @ foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CategoryName</td>
+                        <td>@item.CategoryDescription</td>
+                        @if (item.CategoryStatüs == true)
+                        {
+                            <td class="badge badge-success ">Aktif</td>
+
+                        }
+                        else
+                        {
+                            <td class="badge badge-danger">Pasif</td>
+
+                        }
+
+                        <td>
+
+                            @Html.ActionLink(" ", "DeleteCategory", new { id = item.CategoryID }, new { @class = "fas fa-sync-alt fa-2x " })
+
+                        </td>
+                        <td> @Html.ActionLink(" ", "UpdateCategory", new { id = item.CategoryID }, new { @class = "fas fa-edit fa-2x" })</td>
+                        <td><a href="#" class="btn btn-outline-warning btn-sm">Başlıklar</a></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>*@

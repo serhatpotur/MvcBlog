@@ -2608,6 +2608,7 @@
     <Content Include="Views\Authorization\PartialWriterList.cshtml" />
     <Content Include="Views\Shared\_TestLayout.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\AdminCategory\CategoryByHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

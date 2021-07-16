@@ -1,40 +1,41 @@
 ﻿@using Entity.Concrate
-@model List<Content>
+@model List<Heading>
 @{
-    ViewBag.Title = "MyContent";
+    ViewBag.Title = "CategoryByHeading";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+
 
 <div class="container ml-2 pt-3">
     <!-- Timelime example  -->
     <div class="row">
         <div class="col-md-12">
-            @*<div class=" col-md-3 card card-header bg-danger text-center font-weight">
-                @ViewBag.HeadName
-            </div>*@
+            <div class=" col-md-3 card card-header bg-danger text-center font-weight">
+                @ViewBag.CategoryName
+            </div>
 
             <div class="timeline">
                 @foreach (var item in Model)
                 {
                     <!-- timeline time label -->
                     <div class="time-label">
-                        <span class="bg-success">@item.ContentDate.ToShortDateString()</span>
+                        <span class="bg-success">@item.HeadingDate.ToShortDateString()</span>
                     </div>
                     <!-- /.timeline-label -->
                     <!-- timeline item -->
                     <div>
-                        <i class="fas fa-newspaper bg-info"></i>
+                        <i class="fas fa-user bg-info"></i>
 
                         <div class="timeline-item">
 
                             <h3 class="timeline-header border-0">
-                                <a href="~/Content/ContentByHeading/@item.HeadingID">@item.Heading.HeadingName</a>
+                                <a href="#">@item.HeadingName - @item.Writer.WriterName @item.Writer.WriterSurname</a>
                             </h3>
                         </div>
                     </div>
                     <!-- END timeline item -->
                     <!-- timeline item -->
-                    <div>
+                    @*<div>
                         <i class="fas fa-comments bg-warning"></i>
 
                         <div class="timeline-item">
@@ -44,7 +45,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div>*@
                 }
                 <!-- END timeline item -->
             </div>
@@ -56,4 +57,3 @@
     </div>
 
 </div>
-

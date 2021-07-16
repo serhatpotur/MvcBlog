@@ -38,11 +38,16 @@ namespace Business.Concrate
             return _headingDal.List();
         }
 
+        public List<Heading> GetListByCategoryId(int id)
+        {
+            return _headingDal.List(x => x.CategoryID == id);
+        }
+
         public List<Heading> GetListByWriterId(int id)
         {
             return _headingDal.List(x => x.WriterID == id && x.isActive == true); //session olacak
         }
-       
+
 
         public void Update(Heading heading)
         {
